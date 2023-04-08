@@ -1,0 +1,46 @@
+Sample Question
+
+- 1-2 line of story
+- functionality required
+-  
+
+
+
+
+example -
+
+COMET is having various tasks in the list today. The list is so big he's afraid he might forget. COMET asks you to create a TODO React app. 
+Requirements
+1. A Textfield where he can write his todo and a button which can help him put todo in the list stack.
+2. A list of todos that are already created
+3. Each todo list item should contain 
+	a. TODO_TEXT - the text that user entered.
+	b. TODO_ID - a unique todo id for each todo.
+	c. EDIT - a button to edit the todo.
+	d. DELETE - a button to delete the todo.
+4. On clicking EDIT, a modal should appear that contains
+	a. textfield - the updated_text can be entered.
+	b. UPDATE - a button enabled when update_todo entered and should update that todo.
+
+Directions to Problem:
+You only need two components
+1. App - parent div component with className="App", should serve the purpose of listing todos and add todo
+2. Todo - handles UI of each todo list item and update todo.
+
+You should follow the naming conventions like if the component is ADD_TODO, give class as "add__todo"
+
+Initials:
+1. The file structure is already given to you with initial template needed.
+2. We have also provided firebase.js file, which you can use if seems required.
+
+Points and Judging:
+	1. To run the app, We have provided the Run button, at the very bottom-right corner. The Run button, will check the test cases already written for the app.
+	2. You may need to change/update the app, according to test status.
+	3. To actually gain the points, you need to pass each test cases.
+	4. Your points will also depends on time you took to solve the problem. Watch Clock.
+	5. Points will also depends on how efficient your code is, depends on its loading time and browser load while running app.
+
+
+
+
+Note: We may not need to give access to create files 

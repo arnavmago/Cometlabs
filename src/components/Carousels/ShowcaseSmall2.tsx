@@ -1,0 +1,60 @@
+import * as React from "react";
+import Carousel from "react-multi-carousel";
+
+import { Box, Stack, Typography } from "@mui/material";
+import { styled } from "@mui/system";
+
+import { smallcard } from "@/components/Carousels/responsive";
+
+interface ShowcaseProps {
+  title: string;
+}
+
+const ShowcaseContainer = styled("div")({
+  width: "100%",
+  position: "relative",
+  marginBottom: "50px",
+});
+
+const ShowcaseSmall: React.FC<ShowcaseProps> = (props) => {
+  const { children } = props;
+
+
+  const ShowcaseHeader = () => {
+    return (
+      <Box sx={{ position: "absolute", top: 0, width: "100%" }}>
+        <Stack direction="row" alignItems="center" spacing={2}>
+          <Typography
+            variant="TitleLarge"
+            sx={{ flexGrow: 1, maxWidth: `calc(100vw - 200px)` }}
+            noWrap
+          >
+            {props.title}
+          </Typography>
+        </Stack>
+      </Box>
+    );
+  };
+
+  return (
+    <ShowcaseContainer>
+      <Carousel
+        autoPlay={true}
+        infinite={true}
+        transitionDuration={30}
+        centerMode={true}
+        responsive={smallcard}
+        ssr
+        arrows={false}
+        showDots={false}
+        renderButtonGroupOutside
+        customButtonGroup={<ShowcaseHeader />}
+      >
+        {children}
+      </Carousel>
+    </ShowcaseContainer>
+  );
+};
+
+
+export default ShowcaseSmall;

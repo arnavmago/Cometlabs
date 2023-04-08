@@ -1,0 +1,20 @@
+Festec
+refer `doc.md` within each directory for documents
+
+.env.local
+
+GOOGLE_ID=798450899254-7mcoqvjeju7l6dr5ovttc417o6636st7.apps.googleusercontent.com
+GOOGLE_SECRET=tsHlGQJFzj8ZNx4z4jJsImuE
+GITHUB_ID=38e22c41c8c7bcae00eb
+GITHUB_SECRET=2168403d0871159c0b840926776abebad054a246
+FACEBOOK_ID=195330622710164
+FACEBOOK_SECRET=fb4799ea7295d875535ccf0025a2e4d0
+NEXTAUTH_URL=http://localhost:3000/api/auth
+NEXT_PUBLIC_AUTH_CALLBACK_URL=http://localhost:3000/
+NEXT_PUBLIC_API_URL=https://api-staging.cometlabs.in
+NEXT_SANDBOX_API_URL=https://sandbox.cometlabs.in
+NEXT_RAZORPAY_KEY=rzp_live_3tPZi5h3GUkEQN
+NEXT_RAZORPAY_SECRET=FsVDynVvsLkrWLHfpZXWVSHV
+UNSPLASH_ID=ELPbFe_fOf5tr3Z6iJ_bVLZ4AMmZPYQpiLojekDhKbc
+UNSPLASH_SECRET=F3SQuB5dXFhqj6dZKb_7l91pKW0zyyJyfeU3rqMgujM
+NEXTAUTH_SECRET=anyrandomsecret

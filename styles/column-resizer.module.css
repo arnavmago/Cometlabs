@@ -1,0 +1,10 @@
+.column_resizer {
+    color: red;
+    width: 4px;
+}
+
+
+.container_width {
+    width: "-webkit-fill-available";
+        overflow: hidden;
+}

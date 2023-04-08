@@ -1,0 +1,33 @@
+.reactMarkDown a {
+  color: #0d81fd;
+  font-weight: 500;
+}
+
+.reactMarkDown h1 {
+  color: #104a8e;
+  font-weight: 500;
+}
+
+.reactMarkDown h2 {
+  color: #104a8e;
+}
+
+.reactMarkDown h3 {
+  color: #104a8e;
+}
+
+.reactMarkDown h4 {
+  color: #104a8e;
+}
+
+.reactMarkDown ul {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  list-style: disc outside none;
+}
+
+.reactMarkDown ul li {
+  margin-left: 0.5em;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
