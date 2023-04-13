@@ -31,3 +31,99 @@
   display: list-item;
   text-align: -webkit-match-parent;
 }
+
+.HeadlineMedium {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.DisplayLarge {
+  font-weight: 600;
+  font-size: 57px;
+  line-height: 64px;
+}
+
+.DisplayMedium {
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 52px;
+}
+
+.DisplaySmall {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.HeadlineLarge {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.HeadlineMedium {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.HeadlineSmall {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.TitleLarge {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.TitleMedium {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.TitleSmall {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.LabelLarge {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.LabelMedium {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.LabelSmall {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.BodyLarge {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.BodyMedium {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.BodySmall {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}

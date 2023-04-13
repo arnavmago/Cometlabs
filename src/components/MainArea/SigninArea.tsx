@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, Link, Box, TextField, IconButton, InputAdornment, Divider, Container } from '@mui/material';
+import { Grid, Stack, Typography, Box, TextField, IconButton, InputAdornment, Divider, Container } from '@mui/material';
 import { OutlinedButton, FilledButton, TextButton, CardContainer } from "@/styles/theme";
 import React from 'react'
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
@@ -174,9 +174,11 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                 </Typography>
                                 <Typography variant="BodyLarge">
                                     {"Don't have   account? "}
-                                    <Link href={InternalLinks.SIGNUP_PAGE} variant="BodyLarge">
+                                    {/* <Link href={InternalLinks.SIGNUP_PAGE} variant="BodyLarge">/ */}
+                                    <a href={InternalLinks.SIGNUP_PAGE} style={{ color:"#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}>
                                         Sign Up
-                                    </Link>
+                                    </a>
+                                    {/* </Link> */}
                                 </Typography>
                                 <Box component="form" sx={{ mt: 3 }} onSubmit={handleSubmit(onSubmit)} noValidate>
                                     <Controller

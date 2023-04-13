@@ -1,9 +1,12 @@
 import Page from "@/layout/Page";
-import { Typography, Box, Grid, Container, Modal, Stack, IconButton } from "@mui/material";
+import { Box, Grid, Container, Modal, Stack, IconButton } from "@mui/material";
 import { CardContainer, TextButton } from '@/styles/theme';
 import * as React from "react";
 import { MENTORS, Mentor } from "@/components/MainArea/Team";
 import { MENTOR, Mento } from "@/components/MainArea/Mentor";
+import style from "@/styles/typography-styles.module.css";
+// import './Typo'
+// import 'tailwindcss'
 // import { Brands } from "@/components/MainArea/Brands";
 import Image from "next/image";
 // import { BsArrowRightShort } from 'react-icons/bs'
@@ -20,14 +23,30 @@ const FourSections = () => {
         <>
             <Box sx={{ mb: "100px" }}>
                 <Container>
-                    <Typography variant="HeadlineMedium" sx={{ mb: 6 }} paragraph> We are Reaching Heights 🚀 </Typography>
+                    {/* <Typography variant="HeadlineMedium" sx={{ mb: 6 }} paragraph> We are Reaching Heights 🚀 </Typography> */}
+                    <p className={style.HeadlineMedium}>
+                        We are Reaching Heights 🚀
+                    </p>
                     <Grid container sx={{ textAlign: "center" }}>
                         {glance.map((glan, i) => {
                             return (
                                 <Grid item xs={12} sm={6} md={4} key={i}>
                                     <CardContainer sx={{ py: 6, mr: 1.5, mb: 1.5, backgroundColor: "transparent", backgroundImage: "none", border: "2px solid", borderImageSource: "linear-gradient(180deg, #003B93 0%, rgba(102, 164, 255, 0.1) 100%)", borderImageSlice: 1 }}>
-                                        <Typography paragraph sx={{ background: "linear-gradient(90deg, #66B6FF 0%, #D766FF 85.94%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} variant="DisplaySmall">{glan.number}</Typography>
-                                        <Typography paragraph variant="TitleMedium">{glan.name}</Typography>
+
+                                        {/* <Typography paragraph sx={{ background: "linear-gradient(90deg, #66B6FF 0%, #D766FF 85.94%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} variant="DisplaySmall">{glan.number}</Typography> */}
+                                        <p className={style.DisplaySmall} style={{
+
+                                            background: "linear-gradient(90deg, #66B6FF 0%, #D766FF 85.94%)",
+                                            WebkitBackgroundClip: "text",
+                                            WebkitTextFillColor: "transparent"
+
+                                        }}>
+                                            {glan.number}
+                                        </p>
+                                        {/* <Typography paragraph variant="TitleMedium">{glan.name}</Typography> */}
+                                        <p className={style.TitleMedium}>
+                                            {glan.name}
+                                        </p>
                                     </CardContainer>
                                 </Grid>
                             )
@@ -60,18 +79,37 @@ const FourSections = () => {
             </Box> */}
             <Page noFooter noHeader>
                 <Box sx={{ py: "80px" }}>
-                    <Typography paragraph variant="HeadlineMedium" >
+                    {/* <Typography paragraph variant="HeadlineMedium" >
                         Meet Our Founding Team
-                    </Typography>
+                    </Typography> */}
+                    <p className={style.HeadlineMedium}>
+                        Meet Our Founding Team
+                    </p>
                     <div style={{ marginBottom: "48px" }}>
-                        <Typography variant="LabelLarge" sx={{ color: 'onsurfacevariant.main' }} >
+                        {/* <Typography variant="LabelLarge" paragraph sx={{ m: 0, mb: 6, color: 'onsurfacevariant.main' }} >
+                            A group of passionate developers from different IIITs, who connected together in their first year of engineering and built a */}
+                        {/* <Link href="https://iiitians-network.github.io/Home-Page-Website/"> community </Link> */}
+                        {/* <a href="https://iiitians-network.github.io/Home-Page-Website/" style={{ color: "#aac6fe", textDecoration: "none" }}> community </a> */}
+                        {/* of */}
+                        {/* <Link href="https://iiitians-network.github.io/Team/"> 7000+ engineers </Link> */}
+                        {/* <a href="https://iiitians-network.github.io/Team/" style={{ color: "#aac6fe", textDecoration: "none" }} > 7000+ engineers </a> */}
+                        {/* from IIITs, NITs and IITs and now building cutting-edge technologies for transforming the fresher developers hiring space. */}
+                        {/* </Typography> */}
+                        <p className={style.LabelLarge} style={{ color: '#c3c6d0', marginBottom: 50 }}>
+                            A group of passionate developers from different IIITs, who connected together in their first year of engineering and built a
+                            <a href="https://iiitians-network.github.io/Home-Page-Website/" style={{ color: "#aac6fe", textDecoration: "none" }}> community </a>
+                            of
+                            <a href="https://iiitians-network.github.io/Team/" style={{ color: "#aac6fe", textDecoration: "none" }} > 7000+ engineers </a>
+                            from IIITs, NITs and IITs and now building cutting-edge technologies for transforming the fresher developers hiring space.
+                        </p>
+                        {/* <Typography variant="LabelLarge" sx={{ color: 'onsurfacevariant.main' }} >
                             A group of passionate developers from different IIITs, who connected together in their first year of engineering and built a </Typography>
-                        <Typography variant="LabelLarge" sx={{ color: 'primary.main' }} onClick={() => { window.location.href = "https://iiitians-network.github.io/Home-Page-Website/" }}>community</Typography>
+                        <Typography variant="LabelLarge" sx={{ color: 'primary.main' }} onClick={() => { window.location.href = "https://iiitians-network.github.io/Home-Page-Website/" }}> community </Typography>
                         <Typography variant="LabelLarge" sx={{ color: 'onsurfacevariant.main' }} >of</Typography>
-                        <Typography variant="LabelLarge" sx={{ color: 'primary.main' }} onClick={() => { window.location.href = "https://iiitians-network.github.io/Team/" }}>community</Typography>
+                        <Typography variant="LabelLarge" sx={{ color: 'primary.main' }} onClick={() => { window.location.href = "https://iiitians-network.github.io/Team/" }}> community </Typography>
                         <Typography variant="LabelLarge" sx={{ color: 'onsurfacevariant.main' }}>
                             from IIITs, NITs and IITs and now building cutting-edge technologies for transforming the fresher developers hiring space.
-                        </Typography>
+                        </Typography> */}
                     </div>
                     <Grid container justifyContent="center" spacing={1}>
                         {MENTORS.map((mentor, index) => {
@@ -114,12 +152,18 @@ const FourSections = () => {
             </Page>
             <Box id="backed" sx={{ pt: "80px", pb: "72px", background: "#fff", color: "#000" }}>
                 <Container>
-                    <Typography paragraph variant="HeadlineMedium" >
+                    {/* <Typography paragraph variant="HeadlineMedium" >
                         We are backed by
-                    </Typography>
-                    <Typography variant="LabelLarge" paragraph sx={{ m: 0, mb: 6, maxWidth: "750px", color: "#44474F" }} >
+                    </Typography> */}
+                    <p className={style.HeadlineMedium}>
+                        We are backed by
+                    </p>
+                    {/* <Typography variant="LabelLarge" paragraph sx={{ m: 0, mb: 6, maxWidth: "750px", color: "#44474F" }} >
                         We are backed by prominent investors such as SucSEED Ventures and Accelerated by CIE-IIITH
-                    </Typography>
+                    </Typography> */}
+                    <p className={style.LabelLarge} style={{ color: '#44474F', margin: 0, maxWidth: '750px', marginBottom: 50 }}>
+                        We are backed by prominent investors such as SucSEED Ventures and Accelerated by CIE-IIITH
+                    </p>
                     <Grid container justifyContent="center">
                         {Backed.map((back, index) =>
                             <Grid item xs key={index}>
@@ -133,14 +177,20 @@ const FourSections = () => {
                         )}
                     </Grid>
                 </Container>
-            </Box>
+            </Box >
             <Container sx={{ py: "80px", }}>
-                <Typography paragraph variant="HeadlineMedium" >
+                {/* <Typography paragraph variant="HeadlineMedium" >
                     Advisory Board
-                </Typography>
-                <Typography variant="LabelLarge" paragraph sx={{ m: 0, mb: 6, color: "onsurfacevariant.main" }} >
+                </Typography> */}
+                <p className={style.HeadlineMedium} >
+                    Advisory Board
+                </p>
+                {/* <Typography variant="LabelLarge" paragraph sx={{ m: 0, mb: 6, color: "onsurfacevariant.main" }} >
                     The current members of COMETLABS&apos; advisory board include Mentors from CIE-IIITH, Mr. Ramesh Loganathan having 20+ years of experience in product and innovation, Mr. Viivek Verma having 30+ years of experience in Strategy and Growth, Mr. Shridhar Lanka and Mr. Ravi having 20+ years of experience in Tech, GTM Strategy, Mrs. Vineeta Gupta having 18+ years of experience in finance and Mr. Pratyush Singh having 8+ years of experience in product building as a CTO of Hapramp Studio, raising $ 1M from Anand Mahindra and Mr. Raj Prakash Jaiswal who lead architect and devOps at Microsoft, USA for 8 years and now Principle Architect at Salesforce, USA
-                </Typography>
+                </Typography> */}
+                <p className={style.LabelLarge} style={{ fontSize: '0.9rem', fontWeight: '100', color: '#c3c6d0', marginBottom: 50 }}>
+                    The current members of COMETLABS&apos; advisory board include Mentors from CIE-IIITH, Mr. Ramesh Loganathan having 20+ years of experience in product and innovation, Mr. Viivek Verma having 30+ years of experience in Strategy and Growth, Mr. Shridhar Lanka and Mr. Ravi having 20+ years of experience in Tech, GTM Strategy, Mrs. Vineeta Gupta having 18+ years of experience in finance and Mr. Pratyush Singh having 8+ years of experience in product building as a CTO of Hapramp Studio, raising $ 1M from Anand Mahindra and Mr. Raj Prakash Jaiswal who lead architect and devOps at Microsoft, USA for 8 years and now Principle Architect at Salesforce, USA
+                </p>
                 <Grid container justifyContent="center" spacing={1}>
                     {MENTOR.map((mentor, index) => {
                         return (
@@ -168,9 +218,17 @@ export const MentorSingle = (mentor: Mento) => {
                             width={120}
                             alt={mentor.name} />
                     </Box>
-                    <Typography variant="TitleMedium">{mentor.name}</Typography>
-                    <Typography color="onsurfacevariant.main" variant="BodyMedium">{mentor.designation}</Typography>
-                    <TextButton onClick={() => { setOpen(true) }} sx={{ width: "max-content", mt: 2 }}><Typography variant="LabelLarge">View Details</Typography></TextButton>
+                    {/* <Typography variant="TitleMedium">{mentor.name}</Typography> */}
+                    <p className={style.TitleMedium}>
+                        {mentor.name}</p>
+                    {/* <Typography color="onsurfacevariant.main" variant="BodyMedium">{mentor.designation}</Typography> */}
+                    <p className={style.BodyMedium} style={{ color: '#c3c6d0', margin: 0 }}>
+                        {mentor.designation}</p>
+                    <TextButton onClick={() => { setOpen(true) }} sx={{ width: "max-content", mt: 2 }}>
+                        {/* <Typography variant="LabelLarge">View Details</Typography> */}
+                        <p className={style.LabelLarge} style={{margin: 0 }}>
+                            View Details</p>
+                    </TextButton>
                 </CardContainer>
             </Grid>
             <Modal open={open} onClose={() => setOpen(false)} aria-labelledby="modal-modal-title"
@@ -186,9 +244,15 @@ export const MentorSingle = (mentor: Mento) => {
                                     alt={mentor.name} />
                             </Box>
                             <Box sx={{ textAlign: "center", maxWidth: "250px" }}>
-                                <Typography paragraph variant="DisplayMedium">{mentor.name}</Typography>
-                                <Typography paragraph color="onsurfacevariant.main" variant="TitleLarge">{mentor.designation}</Typography>
-                                <Typography paragraph variant="LabelLarge">{mentor.bio}</Typography>
+                                {/* <Typography paragraph variant="DisplayMedium">{mentor.name}</Typography> */}
+                                <p className={style.DisplayMedium}>
+                                    {mentor.name}</p>
+                                {/* <Typography paragraph color="onsurfacevariant.main" variant="TitleLarge">{mentor.designation}</Typography> */}
+                                <p className={style.TitleLarge} style={{ color: '#c3c6d0' }}>
+                                    {mentor.designation}</p>
+                                {/* <Typography paragraph variant="LabelLarge">{mentor.bio}</Typography> */}
+                                <p className={style.LabelLarge} style={{ color: 'white' }}>
+                                    {mentor.bio}</p>
                                 {/* <Stack sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                                     <IconButton href={`${mentor.facebook}` || '#'} target={"_blank"}>
                                         <FaFacebookSquare />
@@ -225,9 +289,17 @@ export const TeamSingle = (mentor: Mentor) => {
                             width={100}
                             alt={mentor.name} />
                     </Box>
-                    <Typography variant="TitleMedium">{mentor.name}</Typography>
-                    <Typography sx={{ width: "max-content", mt: 1 }} color="onsurfacevariant.main" variant="BodyMedium">{mentor.designation}</Typography>
-                    <TextButton onClick={() => { setOpen(true) }} sx={{ width: "max-content", mt: 3.5 }}><Typography variant="LabelLarge">View Details</Typography></TextButton>
+                    {/* <Typography variant="TitleMedium">{mentor.name}</Typography> */}
+                    <p className={style.TitleMedium}>
+                        {mentor.name}</p>
+                    {/* <Typography sx={{ width: "max-content", mt: 1 }} color="onsurfacevariant.main" variant="BodyMedium">{mentor.designation}</Typography> */}
+                    <p style={{ fontSize: '0.9rem', fontWeight: '100', color: '#c3c6d0', marginTop: 10, width: 'max-content' }}>
+                        {mentor.designation}</p>
+                    <TextButton onClick={() => { setOpen(true) }} sx={{ width: "max-content", mt: 3.5 }}>
+                        {/* <Typography variant="LabelLarge">View Details</Typography> */}
+                        <p style={{ fontSize: '0.9rem', fontWeight: '100', color: '#aac6fe', margin: 0 }}>
+                            View Details</p>
+                    </TextButton>
                 </CardContainer>
             </Grid>
             <Modal open={open} onClose={() => setOpen(false)} aria-labelledby="modal-modal-title"
@@ -242,9 +314,15 @@ export const TeamSingle = (mentor: Mentor) => {
                                     alt={mentor.name} />
                             </Box>
                             <Box sx={{ textAlign: "center", maxWidth: "250px" }}>
-                                <Typography paragraph variant="DisplayMedium">{mentor.name}</Typography>
-                                <Typography paragraph color="onsurfacevariant.main" variant="TitleLarge">{mentor.designation}</Typography>
-                                <Typography paragraph variant="LabelLarge">{mentor.catchy}</Typography>
+                                {/* <Typography paragraph variant="DisplayMedium">{mentor.name}</Typography> */}
+                                <p style={{ fontSize: '2.75rem', fontWeight: '900', color: 'white' }}>
+                                    {mentor.name}</p>
+                                {/* <Typography paragraph color="onsurfacevariant.main" variant="TitleLarge">{mentor.designation}</Typography> */}
+                                <p className={style.TitleLarge} style={{ color: '#c3c6d0' }}>
+                                    {mentor.designation}</p>
+                                {/* <Typography paragraph variant="LabelLarge">{mentor.catchy}</Typography> */}
+                                <p className={style.LabelLarge} style={{ color: '#aac6fe' }}>
+                                    {mentor.catchy}</p>
                                 <Stack sx={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
                                     <IconButton href={`${mentor.facebook}` || '#'} target={"_blank"}>
                                         <FaFacebookSquare />

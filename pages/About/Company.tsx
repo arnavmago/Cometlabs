@@ -1,6 +1,6 @@
 import Footer from "@/layout/Footer";
 import Header from "@/layout/Header";
-import { Typography, Box, Grid, Container, Modal, IconButton, Stack } from "@mui/material";
+import { Typography, Box, Grid, Container, Modal, Stack } from "@mui/material";
 import { CardContainer, TextButton, TonalButton } from '@/styles/theme';
 import * as React from "react";
 import { MENTORS, Mentor } from "@/components/MainArea/Team";
@@ -15,7 +15,7 @@ import Head from "next/head";
 // import { Timeline, TimelineItem, TimelineContent, TimelineSeparator, TimelineDot, TimelineConnector, TimelineOppositeContent } from "@mui/lab";
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { TbDownload } from "react-icons/tb";
-import Link from "@/components/Link";
+// import Link from "@/components/Link";
 // import { NewNews } from "@/components/MainArea/NewsArea";
 import { DefaultUser } from "@/backend/functions";
 
@@ -185,7 +185,7 @@ export const TeamSingle = (mentor: Mentor) => {
                                 <Typography paragraph color="onsurfacevariant.main" variant="TitleLarge">{mentor.designation}</Typography>
                                 <Typography paragraph variant="LabelLarge">{mentor.catchy}</Typography>
                                 <Stack sx={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
-                                    <IconButton href={`${mentor.facebook}` || '#'} target={"_blank"}>
+                                    {/* <IconButton href={`${mentor.facebook}` || '#'} target={"_blank"}>
                                         <FaFacebookSquare />
                                     </IconButton>
                                     <IconButton href={`${mentor.instagram}`} target={"_blank"}>
@@ -196,7 +196,28 @@ export const TeamSingle = (mentor: Mentor) => {
                                     </IconButton>
                                     <IconButton href={`${mentor.linkedin}`} target={"_blank"}>
                                         <FaLinkedin />
-                                    </IconButton>
+                                    </IconButton> */}
+                                    <div>
+                                        {mentor.facebook && (
+                                            <a href={mentor.facebook} target="_blank">
+                                                <FaFacebookSquare />
+                                            </a>
+                                        )}
+                                        {mentor.instagram && (
+                                            <a href={mentor.instagram} target="_blank">
+                                                <FaInstagramSquare />
+                                            </a>
+                                        )}
+                                        {mentor.twitter && (
+                                            <a href={mentor.twitter} target="_blank">
+                                                <FaTwitterSquare />
+                                            </a>
+                                        )}
+                                        <a href={mentor.linkedin} target="_blank">
+                                            <FaLinkedin />
+                                        </a>
+                                    </div>
+
                                 </Stack>
                             </Box>
                         </CardContainer>
@@ -256,7 +277,13 @@ export const FourSections = () => {
                         Meet Our Founding Team
                     </Typography>
                     <Typography variant="LabelLarge" paragraph sx={{ m: 0, mb: 6, color: 'onsurfacevariant.main' }} >
-                        A group of passionate developers from different IIITs, who connected together in their first year of engineering and built a <Link href="https://iiitians-network.github.io/Home-Page-Website/">community</Link> of <Link href="https://iiitians-network.github.io/Team/">7000+ engineers</Link> from IIITs, NITs and IITs and now building cutting-edge technologies for transforming the fresher developers hiring space.
+                        A group of passionate developers from different IIITs, who connected together in their first year of engineering and built a
+                        {/* <Link href="https://iiitians-network.github.io/Home-Page-Website/"> community </Link> */}
+                        <a href="https://iiitians-network.github.io/Home-Page-Website/" style={{ color: "#aac6fe", textDecoration: "none" }}> community </a>
+                        of
+                        {/* <Link href="https://iiitians-network.github.io/Team/"> 7000+ engineers </Link> */}
+                        <a href="https://iiitians-network.github.io/Team/" style={{ color: "#aac6fe", textDecoration: "none" }} > 7000+ engineers </a>
+                        from IIITs, NITs and IITs and now building cutting-edge technologies for transforming the fresher developers hiring space.
                     </Typography>
                     <Grid container justifyContent="center" spacing={1}>
                         {MENTORS.map((mentor, index) => {
@@ -378,7 +405,7 @@ export const MentorSingle = (mentor: Mento) => {
                                     <IconButton href={`${mentor.facebook}` || '#'} target={"_blank"}>
                                         <FaFacebookSquare />
                                     </IconButton> */}
-                                {mentor.instagram && <IconButton href={`${mentor.instagram}`} target={"_blank"}>
+                                {/* {mentor.instagram && <IconButton href={`${mentor.instagram}`} target={"_blank"}>
                                     <FaInstagramSquare />
                                 </IconButton>}
                                 {mentor.twitter && <IconButton href={`${mentor.twitter}`} target={"_blank"}>
@@ -386,7 +413,23 @@ export const MentorSingle = (mentor: Mento) => {
                                 </IconButton>}
                                 <IconButton href={`${mentor.linkedin}`} target={"_blank"}>
                                     <FaLinkedin />
-                                </IconButton>
+                                </IconButton> */}
+                                <div>
+                                    {mentor.instagram && (
+                                        <a href={`${mentor.instagram}`} target="_blank">
+                                            <FaInstagramSquare />
+                                        </a>
+                                    )}
+                                    {mentor.twitter && (
+                                        <a href={`${mentor.twitter}`} target="_blank">
+                                            <FaTwitterSquare />
+                                        </a>
+                                    )}
+                                    <a href={`${mentor.linkedin}`} target="_blank">
+                                        <FaLinkedin />
+                                    </a>
+                                </div>
+
                                 {/* </Stack> */}
                             </Box>
                         </CardContainer>

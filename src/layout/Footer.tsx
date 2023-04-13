@@ -15,7 +15,8 @@ import {
 import { styled } from "@mui/system";
 import Copyright from "@/layout/Copyright";
 import { DefaultUser } from "@/backend/functions";
-import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
+import { ScopedCssBaseline } from '@mui/material';
+import { ThemeProvider } from "@material-tailwind/react";
 import { darktheme } from '@/styles/theme';
 
 interface NavLink {
@@ -106,7 +107,7 @@ export default function Footer({ user }: FooterProps) {
 
 
   return (
-    <ThemeProvider theme={darktheme}>
+    <ThemeProvider value={darktheme}>
       <ScopedCssBaseline>
         <CardContainer elevation={0}
           sx={{
@@ -129,21 +130,21 @@ export default function Footer({ user }: FooterProps) {
                 <Box sx={{ width: { sm: "100%", lg: "320px", xs: "320px" }, ml: { xs: "0", sm: "0px", lg: "0" }, mb: { xs: 4, sm: 0 } }}>
                   <Logo isDark />
                   <Stack direction="row" sx={{ width: { sm: "200px", lg: "200px", xs: "200px" }, justifyContent: "space-between", "& .MuiIconButton-root": { p: 0 }, mb: 3, mt: 3 }}>
-                    <IconButton aria-label="Linkedin" {...ExternalLinks.COMETLABS_LINKEDIN}>
+                    <a href={ExternalLinks.COMETLABS_LINKEDIN.href} target="_blank" rel="noopener noreferrer" aria-label="Linkedin">
                       <GrLinkedin color="#fff" size={"1.4rem"} />
-                    </IconButton>
-                    <IconButton aria-label="Facebook" {...ExternalLinks.COMETLABS_FACEBOOK}>
+                    </a>
+                    <a href={ExternalLinks.COMETLABS_FACEBOOK.href} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                       <FaFacebook color="#fff" size={"1.5rem"} />
-                    </IconButton>
-                    <IconButton aria-label="Twitter" {...ExternalLinks.COMETLABS_TWITTER}>
+                    </a>
+                    <a href={ExternalLinks.COMETLABS_TWITTER.href} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                       <FaTwitter color="#fff" size={"1.5rem"} />
-                    </IconButton>
-                    <IconButton aria-label="Instagram" {...ExternalLinks.COMETLABS_INSTAGRAM} >
+                    </a>
+                    <a href={ExternalLinks.COMETLABS_INSTAGRAM.href} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                       <FaInstagram color="#fff" size={"1.5rem"} />
-                    </IconButton>
-                    <IconButton aria-label="YouTube" {...ExternalLinks.COMETLABS_YOUTUBE}>
+                    </a>
+                    <a href={ExternalLinks.COMETLABS_YOUTUBE.href} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                       <FaYoutube color="#fff" size={"1.7rem"} />
-                    </IconButton>
+                    </a>
                   </Stack>
                   <Copyright />
                   <Typography variant="BodySmall" paragraph color="surfacevariant" sx={{ mt: 0.5 }}>

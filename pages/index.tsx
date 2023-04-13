@@ -70,7 +70,7 @@ export default function LandingPage({ arenasOld, arenasNew, arena }: Props) {
         </div>
       </Container>
       <FourSections />
-      <ThemeProvider theme={darktheme}>
+      <ThemeProvider value={darktheme}>
         <ScopedCssBaseline>
           <Footer user={user} />
         </ScopedCssBaseline>
