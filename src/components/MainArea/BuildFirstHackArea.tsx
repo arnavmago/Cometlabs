@@ -12,6 +12,7 @@ import GitArea from "@/components/MainArea/GitArea";
 import { DefaultUser } from "@/backend/functions";
 import { useRouter } from "next/router";
 import * as React from 'react';
+import style from "@/styles/typography-styles.module.css";
 
 const FirstHackButton = () => {
     const [open, setOpen] = useState(false);
