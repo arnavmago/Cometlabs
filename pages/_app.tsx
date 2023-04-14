@@ -1,5 +1,6 @@
 import "@/styles/carousel-styles.css";
 import "@/styles/typography-styles.module.css";
+import "@/styles/textfield-styles.module.css";
 import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
@@ -14,7 +15,6 @@ import { LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import "@/styles/global.css"
 // import {mode} from '@/layout/HeaderMenu';
 
 // Client-side cache, shared for the whole session of the user in the browser.
