@@ -8,6 +8,7 @@ import { useSnackbar } from 'notistack';
 import * as NextAuth from "next-auth/react";
 import { BuiltInProviderType } from "next-auth/providers";
 import Providers from './Providers';
+import style from "@/styles/textfield-styles.module.css";
 
 export type SignInFormData = {
     email: string;
@@ -193,7 +194,8 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                             },
                                         }}
                                         render={({ field, fieldState: { error } }) => (
-                                            <TextField
+                                            <>
+                                            {/* <TextField
                                                 margin="normal"
                                                 required
                                                 fullWidth
@@ -219,7 +221,12 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                                 helperText={error ? error.message : null}
                                                 {...field}
                                                 ref={null}
-                                            />
+                                            /> */}
+                                            <div className={ `${style.form__group} ${style.field}` }>
+                                                <input type="email" className={style.form__field} placeholder="Email Address" name="email" id='email' autoFocus required ref={null}/>
+                                                <label htmlFor="email" className={style.form__label}>Email Address</label>
+                                            </div>
+                                            </>
                                         )}
                                     />
                                     <Controller
@@ -234,7 +241,8 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                             },
                                         }}
                                         render={({ field, fieldState: { error } }) => (
-                                            <TextField
+                                            <>
+                                            {/* <TextField
                                                 margin="normal"
                                                 required
                                                 fullWidth
@@ -273,7 +281,16 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                                 helperText={error ? error.message : null}
                                                 {...field}
                                                 ref={null}
-                                            />
+                                            /> */}
+                                            <div className={ `${style.form__group} ${style.field}` }>
+                                                <input type={values.showPassword ? "text" : "password"} className={style.form__field} placeholder="Password" 
+                                                name="password" id='password' required ref={null}/>
+                                                <IconButton onClick={handleClickShowPassword} style={{ position: 'absolute', right: '0px'}}>
+                                                    {values.showPassword ? <MdOutlineVisibilityOff /> : <MdOutlineVisibility />}
+                                                </IconButton>
+                                                <label htmlFor="password" className={style.form__label}>Password</label>
+                                            </div>
+                                            </>
                                         )}
                                     />
                                     <div style={{ margin: "34px auto" }}>
