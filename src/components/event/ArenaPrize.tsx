@@ -1,5 +1,5 @@
 import { ReadOnly, arenaPrize } from "./types";
-import { Typography, Stack, Box, IconButton, TextField, Skeleton } from "@mui/material";
+import { Typography, Stack, Box, TextField, Skeleton } from "@mui/material";
 import React from "react";
 import { HiOutlineLockClosed, HiOutlineTrash, HiOutlinePlusCircle, } from 'react-icons/hi'
 import { Controller, useFormContext } from "react-hook-form";
@@ -70,7 +70,7 @@ const ArenaPrize = ({ readOnly }: ReadOnly) => {
                         {prizesArray.map((prize) => {
                             return (
                                 <CardContainer sx={{ padding: "20px 0", mb: 4, position: "relative", backgroundColor: "surfacevariant.main", border: 0 }} key={prize.title}>
-                                    {!readOnly && (
+                                    {/* {!readOnly && (
                                         <IconButton
                                             color="error"
                                             sx={{ position: "absolute", top: "10px", right: "16px" }}
@@ -80,7 +80,23 @@ const ArenaPrize = ({ readOnly }: ReadOnly) => {
                                         >
                                             <HiOutlineTrash />
                                         </IconButton>
+                                    )} */}
+                                    {!readOnly && (
+                                        <a
+                                            href="#"
+                                            onClick={() => {
+                                                handleDelete(prize.title);
+                                            }}
+                                            style={{
+                                                position: "absolute",
+                                                top: "10px",
+                                                right: "16px",
+                                            }}
+                                        >
+                                            <HiOutlineTrash />
+                                        </a>
                                     )}
+
                                     <Stack sx={{ margin: "0 20px", display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
                                         <Typography variant="TitleLarge" color="onsurfacevariant.main">{prize.title}</Typography>
                                         <Typography variant="BodyLarge" className="content">
@@ -108,7 +124,7 @@ const ArenaPrize = ({ readOnly }: ReadOnly) => {
                         }}
                     >
                         <Stack direction="row" sx={{ justifyContent: "space-between", padding: "8px 24px 8px 0" }}>
-                            <IconButton
+                            {/* <IconButton
                                 color="error"
                                 onClick={() => {
                                     setOpen(false);
@@ -121,7 +137,23 @@ const ArenaPrize = ({ readOnly }: ReadOnly) => {
                                 onClick={handleSubmit}
                             >
                                 <HiOutlinePlusCircle />
-                            </IconButton>
+                            </IconButton> */}
+                            <a
+                                href="#"
+                                onClick={() => {
+                                    setOpen(false);
+                                    // reset();
+                                }}
+                            >
+                                <HiOutlineTrash />
+                            </a>
+                            <a
+                                href="#"
+                                onClick={handleSubmit}
+                            >
+                                <HiOutlinePlusCircle />
+                            </a>
+
                         </Stack>
                         <Box sx={{ pb: 3 }}>
                             <Controller

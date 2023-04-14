@@ -8,7 +8,7 @@ import {
   ButtonGroupProps,
 } from "react-multi-carousel/lib/types";
 
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { bigcard } from "@/components/Carousels/responsive";
@@ -40,12 +40,19 @@ const ShowcaseBig: React.FC<ShowcaseProps> = (props) => {
             {props.title}
           </Typography>
           <div style={{ display: "flex" }}>
-            <IconButton aria-label="previous" onClick={() => !!previous && previous()}>
+            {/* <IconButton aria-label="previous" onClick={() => !!previous && previous()}>
               <HiOutlineArrowCircleLeft />
             </IconButton>
             <IconButton aria-label="next" onClick={() => !!next && next()}>
               <HiOutlineArrowCircleRight />
-            </IconButton>
+            </IconButton> */}
+            <a href="#" onClick={() => !!previous && previous()} aria-label="previous" style={{ border: "none", background: "none", cursor: "pointer", textDecoration: "none" }}>
+              <HiOutlineArrowCircleLeft />
+            </a>
+            <a href="#" onClick={() => !!next && next()} aria-label="next" style={{ border: "none", background: "none", cursor: "pointer", textDecoration: "none" }}>
+              <HiOutlineArrowCircleRight />
+            </a>
+
           </div>
         </Stack>
       </Box>

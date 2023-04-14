@@ -1,5 +1,5 @@
 import { arenaDetails, ReadOnly, type } from './types';
-import { Grid, IconButton, Skeleton, TextField, Stack, Typography, Divider, Autocomplete, Box, TextFieldProps } from "@mui/material";
+import { Grid, Skeleton, TextField, Stack, Typography, Divider, Autocomplete, Box, TextFieldProps } from "@mui/material";
 import { Controller, useFormContext, useWatch } from "react-hook-form";
 import {
   HiOutlineCloudUpload,
@@ -393,7 +393,7 @@ const ArenaDetails = ({ readOnly }: ReadOnly) => {
           >
             {!!details.imageUrl ? (
               <>
-                <IconButton
+                {/* <IconButton
                   size="small"
                   color="secondary"
                   sx={{
@@ -405,7 +405,20 @@ const ArenaDetails = ({ readOnly }: ReadOnly) => {
                   onClick={() => setValue("details.imageUrl", "")}
                 >
                   <HiOutlineXCircle />
-                </IconButton>
+                </IconButton> */}
+                <a
+                  href="#"
+                  onClick={() => setValue("details.imageUrl", "")}
+                  style={{
+                    position: "absolute",
+                    top: "12px",
+                    right: "12px",
+                    zIndex: 10,
+                  }}
+                >
+                  <HiOutlineXCircle />
+                </a>
+
                 <Image
                   src={details.imageUrl}
                   layout="fill"

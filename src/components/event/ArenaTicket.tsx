@@ -1,6 +1,6 @@
 import { arenaTicket } from "./types";
 import { Controller, useFormContext } from "react-hook-form";
-import { Stack, Box, Typography, IconButton, Grid, TextField, Radio } from "@mui/material";
+import { Stack, Box, Typography, Grid, TextField, Radio } from "@mui/material";
 import { HiOutlineLockClosed, HiOutlineXCircle, HiOutlineTrash, HiOutlinePlusCircle, HiOutlineTicket } from "react-icons/hi";
 import React from "react";
 import { nanoid } from "nanoid";
@@ -135,13 +135,20 @@ const ArenaTicket = ({ readOnly }: ReadOnly) => {
             key={ticket.id + "-booking"}
           >
 
-            <IconButton
+            {/* <IconButton
               size="small"
               color="secondary"
               onClick={() => handleDelete(ticket.id)}
             >
               <HiOutlineXCircle />
-            </IconButton>
+            </IconButton> */}
+            <a
+              href="#"
+              onClick={() => handleDelete(ticket.id)}
+            >
+              <HiOutlineXCircle />
+            </a>
+
             <Typography variant="TitleMedium">{ticket.label}</Typography>
             <div style={{ flexGrow: 1 }} />
             <Typography variant="LabelLarge">
@@ -154,7 +161,7 @@ const ArenaTicket = ({ readOnly }: ReadOnly) => {
         {visible ? (
           <Grid container alignItems={"center"} spacing={1}>
             <Grid item xs={1} sx={{ mr: 2 }}>
-              <IconButton
+              {/* <IconButton
                 size="small"
                 color="secondary"
                 onClick={() => {
@@ -163,7 +170,16 @@ const ArenaTicket = ({ readOnly }: ReadOnly) => {
                 }}
               >
                 <HiOutlineTrash />
-              </IconButton>
+              </IconButton> */}
+              <a
+                href="#"
+                onClick={() => {
+                  setVisible(false);
+                  reset();
+                }}
+              >
+                <HiOutlineTrash />
+              </a>
             </Grid>
             <Grid item xs={5}>
               <Controller
@@ -242,9 +258,16 @@ const ArenaTicket = ({ readOnly }: ReadOnly) => {
               />
             </Grid>
             <Grid item xs={1}>
-              <IconButton color="primary" onClick={handleSubmit}>
+              {/* <IconButton color="primary" onClick={handleSubmit}>
                 <HiOutlinePlusCircle />
-              </IconButton>
+              </IconButton> */}
+              <a
+                href="#"
+                onClick={handleSubmit}
+              >
+                <HiOutlinePlusCircle />
+              </a>
+
             </Grid>
           </Grid>
         ) : (
@@ -261,7 +284,7 @@ const ArenaTicket = ({ readOnly }: ReadOnly) => {
           </FilledButton>
         )}
       </Box>
-    </Stack>
+    </Stack >
   )
 }
 

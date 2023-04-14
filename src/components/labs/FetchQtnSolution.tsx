@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack, Typography, Paper, Grid } from "@mui/material";
+import { Box, Stack, Typography, Paper, Grid } from "@mui/material";
 import { GrRefresh } from "react-icons/gr";
 import * as React from "react";
 import { BiChevronUp, BiChevronDown } from "react-icons/bi"
@@ -78,12 +78,15 @@ const FetchQtnSolution = ({ submission }: submission) => {
                     noWrap>
                     Past Submissions
                 </Typography>
-                <IconButton
+                {/* <IconButton
                     color="primary"
                     onClick={() => HandleLoad()}
                 >
                     <GrRefresh color="white" />
-                </IconButton>
+                </IconButton> */}
+                <a href="#" onClick={() => HandleLoad()}>
+                    <GrRefresh color="white" />
+                </a>
             </Stack>
             {submit && submit.length > 0 ? (
                 <Grid direction="row" sx={{ padding: "0 20px" }} container spacing={2} justifyContent="center" alignItems="center">
@@ -113,7 +116,7 @@ const SubmitCard = (prop: submis) => {
                     <Stack direction="row" sx={{ display: "flex", justifyContent: "space-between", alignContent: "center", alignItems: "center" }}>
                         <Typography variant="LabelLarge">{prop.Status}</Typography>
                         <Typography variant="LabelLarge">{new Date(parseInt(prop.Submission_Time)).toLocaleTimeString().replace("T", " ").split(".")[0]}</Typography>
-                        <IconButton
+                        {/* <IconButton
                             color="primary"
                             onClick={() => { setExpanded(!expanded) }}
                         >
@@ -122,7 +125,18 @@ const SubmitCard = (prop: submis) => {
                             ) : (
                                 <BiChevronDown />
                             )}
-                        </IconButton>
+                        </IconButton> */}
+                        <a
+                            href="#"
+                            onClick={() => { setExpanded(!expanded) }}
+                        >
+
+                            {expanded ? (
+                                <BiChevronUp />
+                            ) : (
+                                <BiChevronDown />
+                            )}
+                        </a>
                     </Stack>
                     {!!expanded &&
                         <Stack rowGap={1} sx={{ pt: 2, justifyContent: "center", alignItems: "center" }}>
@@ -136,7 +150,7 @@ const SubmitCard = (prop: submis) => {
                     }
                 </Stack>
             </Paper>
-        </Box>
+        </Box >
     )
 }
 

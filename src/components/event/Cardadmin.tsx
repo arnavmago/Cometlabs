@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Box, IconButton, Paper, Typography, Stack, Chip, Divider } from "@mui/material";
+import { Box, Paper, Typography, Stack, Chip, Divider } from "@mui/material";
 import { styled } from "@mui/system";
 import { InternalLinks } from "@/content/Links";
 import { CodeArena } from './types'
@@ -53,7 +53,14 @@ const SingleCard = ({ ...props }: CodeArena) => {
         <Stack sx={{ mb: "20px" }}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }} alignItems="center">
             <Typography variant="TitleLarge" sx={{ fontWeight: 500 }}>{props.details.title}</Typography>
-            {props.details.websiteUrl && (<IconButton href={props.details.websiteUrl || "#"} target="_blank" color="primary" size="small"><FaLocationArrow style={{ fontSize: "1.3rem" }} /></IconButton>)}
+            {props.details.websiteUrl &&
+              <a
+                href={props.details.websiteUrl || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLocationArrow style={{ fontSize: "1.3rem" }} />
+              </a>}
           </Box>
           <Box sx={{ height: "60px" }}>
             {props.details.desc ? (

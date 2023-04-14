@@ -1,5 +1,5 @@
 import { ReadOnly } from './types';
-import { Grid, Stack, Typography, TextField, IconButton } from "@mui/material";
+import { Grid, Stack, Typography, TextField } from "@mui/material";
 import { arenaOrganiser } from "./types";
 // import dynamic from "next/dynamic";
 import * as React from "react";
@@ -61,7 +61,7 @@ const ArenaOrganiser = ({ readOnly }: ReadOnly) => {
             {organiser.description}
           </Typography>}
         <Stack direction="row" spacing={2} sx={{ mt: 1, display: "flex", justifyContent: "space-around" }}>
-          {!!organiser.facebookUrl && (
+          {/* {!!organiser.facebookUrl && (
             <IconButton href={organiser.facebookUrl} color="default">
               <SiFacebook />
             </IconButton>
@@ -80,7 +80,28 @@ const ArenaOrganiser = ({ readOnly }: ReadOnly) => {
             <IconButton href={organiser.twitterUrl} color="default">
               <SiTwitter />
             </IconButton>
-          )}
+          )} */}
+          {!!organiser.facebookUrl &&
+            <a href={organiser.facebookUrl} target="_blank" rel="noopener noreferrer">
+              <SiFacebook />
+            </a>
+          }
+          {!!organiser.instagramUrl &&
+            <a href={organiser.instagramUrl} target="_blank" rel="noopener noreferrer">
+              <SiInstagram />
+            </a>
+          }
+          {!!organiser.linkedinUrl &&
+            <a href={organiser.linkedinUrl} target="_blank" rel="noopener noreferrer">
+              <SiLinkedin />
+            </a>
+          }
+          {!!organiser.twitterUrl &&
+            <a href={organiser.twitterUrl} target="_blank" rel="noopener noreferrer">
+              <SiTwitter />
+            </a>
+          }
+
         </Stack>
       </div>
     )

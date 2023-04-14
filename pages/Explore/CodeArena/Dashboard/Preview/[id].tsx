@@ -14,7 +14,7 @@ import { ref } from "@/components/Fest/Dashboard/Invite";
 // import { TeamDetailComponent } from "@/components/Fest/Dashboard";
 import { CodeArena } from "@/components/event/types";
 import Header from "@/layout/HeaderLabs";
-import { IconButton, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { HiArrowRight } from "react-icons/hi";
 import { Tag } from "@/components/Fest/Dashboard/AllSubmission";
 
@@ -75,7 +75,10 @@ export default function FestDashboard({ user, teamm, id, submission, fest, type 
                                 <div key={member.id} style={{
                                     display: 'flex'
                                 }}>
-                                    <IconButton sx={{ fontSize: "small" }}>< HiArrowRight /></IconButton>
+                                    {/* <IconButton sx={{ fontSize: "small" }}>< HiArrowRight /></IconButton> */}
+                                    <a href="#" style={{ border: "none", background: "none", fontSize: "small", cursor: "pointer", textDecoration: "none" }}>
+                                        <HiArrowRight />
+                                    </a>
                                     <Typography paragraph key={member.id} variant="LabelLarge" sx={{ mb: 1 }}>{member.info.name}</Typography>
                                 </div>
                             )

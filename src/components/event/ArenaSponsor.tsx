@@ -1,5 +1,5 @@
 import { ReadOnly, arenaSponsorType, Sponsors } from './types';
-import { Stack, Box, Typography, Paper, IconButton, TextField, Skeleton, Modal, Grid, MenuItem } from "@mui/material";
+import { Stack, Box, Typography, Paper, TextField, Skeleton, Modal, Grid, MenuItem } from "@mui/material";
 import { HiOutlineLockClosed, HiOutlineXCircle, HiOutlineCloudUpload } from 'react-icons/hi';
 import Image from "next/image";
 import React from "react";
@@ -146,7 +146,7 @@ const ArenaSponsor = ({ readOnly }: ReadOnly) => {
                                                         elevation={2}
                                                         sx={{ height: track.bannerSize * 100 }}
                                                     >
-                                                        {!readOnly && (
+                                                        {/* {!readOnly && (
                                                             <IconButton
                                                                 size="small"
                                                                 color="secondary"
@@ -160,7 +160,21 @@ const ArenaSponsor = ({ readOnly }: ReadOnly) => {
                                                             >
                                                                 <HiOutlineXCircle />
                                                             </IconButton>
+                                                        )} */}
+                                                        {!readOnly && (
+                                                            <a
+                                                                href="#"
+                                                                style={{
+                                                                    position: "absolute",
+                                                                    top: "12px",
+                                                                    right: "12px",
+                                                                    zIndex: 10,
+                                                                }}
+                                                            >
+                                                                <HiOutlineXCircle />
+                                                            </a>
                                                         )}
+
                                                         <Image
                                                             height={track.bannerSize * 100 || 100}
                                                             width={track.bannerSize * 100 || 100}

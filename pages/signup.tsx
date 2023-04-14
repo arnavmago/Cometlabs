@@ -533,7 +533,7 @@ export default function SignUp(props: SignInProps) {
             Or
           </Typography>
           {/* <Typography><Link href={InternalLinks.SIGNIN_PAGE} variant="BodyLarge"> */}
-          <Typography><a href={InternalLinks.SIGNIN_PAGE} style={{ color:"#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}>
+          <Typography><a href={InternalLinks.SIGNIN_PAGE} style={{ color: "#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}>
             {" login"}
           </a></Typography>
           <Typography variant="BodyLarge" align="center">
@@ -742,12 +742,12 @@ export default function SignUp(props: SignInProps) {
         <Stack direction="row" sx={{ display: 'flex', flexDirection: { xs: "column", md: "row" }, justifyContent: 'space-between', alignItems: 'stretch', mt: 3 }}>
           <div>
             <Checkbox checked={checked} onClick={() => { setchecked(!checked) }} />
-            <Typography variant="LabelSmall">Agree to our 
-            <a href="https://cometlabs.in/About/TermsConditions" target="_blank" style={{ color:"#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}> Terms & Conditions </a>
-            {/* <Link href="https://cometlabs.in/About/TermsConditions" target="_blank">Terms & Conditions</Link>  */}
-            and 
-            <a href="https://cometlabs.in/About/TermsPrivacy" target="_blank" style={{ color:"#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}> Privacy Policy </a>
-            {/* <Link href="https://cometlabs.in/About/TermsPrivacy" target="_blank">Privacy Policy</Link> */}
+            <Typography variant="LabelSmall">Agree to our
+              <a href="https://cometlabs.in/About/TermsConditions" target="_blank" style={{ color: "#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}> Terms & Conditions </a>
+              {/* <Link href="https://cometlabs.in/About/TermsConditions" target="_blank">Terms & Conditions</Link>  */}
+              and
+              <a href="https://cometlabs.in/About/TermsPrivacy" target="_blank" style={{ color: "#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}> Privacy Policy </a>
+              {/* <Link href="https://cometlabs.in/About/TermsPrivacy" target="_blank">Privacy Policy</Link> */}
             </Typography>
           </div>
           <FilledButton

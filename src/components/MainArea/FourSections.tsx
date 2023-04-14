@@ -1,5 +1,5 @@
 import Page from "@/layout/Page";
-import { Box, Grid, Container, Modal, Stack, IconButton } from "@mui/material";
+import { Box, Grid, Container, Modal, Stack } from "@mui/material";
 import { CardContainer, TextButton } from '@/styles/theme';
 import * as React from "react";
 import { MENTORS, Mentor } from "@/components/MainArea/Team";
@@ -96,10 +96,7 @@ const FourSections = () => {
                         {/* from IIITs, NITs and IITs and now building cutting-edge technologies for transforming the fresher developers hiring space. */}
                         {/* </Typography> */}
                         <p className={style.LabelLarge} style={{ color: '#c3c6d0', marginBottom: 50 }}>
-                            A group of passionate developers from different IIITs, who connected together in their first year of engineering and built a
-                            <a href="https://iiitians-network.github.io/Home-Page-Website/" style={{ color: "#aac6fe", textDecoration: "none" }}> community </a>
-                            of
-                            <a href="https://iiitians-network.github.io/Team/" style={{ color: "#aac6fe", textDecoration: "none" }} > 7000+ engineers </a>
+                            A group of passionate developers from different IIITs, who connected together in their first year of engineering and built a<a href="https://iiitians-network.github.io/Home-Page-Website/" style={{ color: "#aac6fe", textDecoration: "none" }}> community </a>of<a href="https://iiitians-network.github.io/Team/" style={{ color: "#aac6fe", textDecoration: "none" }} > 7000+ engineers </a>
                             from IIITs, NITs and IITs and now building cutting-edge technologies for transforming the fresher developers hiring space.
                         </p>
                         {/* <Typography variant="LabelLarge" sx={{ color: 'onsurfacevariant.main' }} >
@@ -226,7 +223,7 @@ export const MentorSingle = (mentor: Mento) => {
                         {mentor.designation}</p>
                     <TextButton onClick={() => { setOpen(true) }} sx={{ width: "max-content", mt: 2 }}>
                         {/* <Typography variant="LabelLarge">View Details</Typography> */}
-                        <p className={style.LabelLarge} style={{margin: 0 }}>
+                        <p className={style.LabelLarge}>
                             View Details</p>
                     </TextButton>
                 </CardContainer>
@@ -257,7 +254,7 @@ export const MentorSingle = (mentor: Mento) => {
                                     <IconButton href={`${mentor.facebook}` || '#'} target={"_blank"}>
                                         <FaFacebookSquare />
                                     </IconButton> */}
-                                {mentor.instagram && <IconButton href={`${mentor.instagram}`} target={"_blank"}>
+                                {/* {mentor.instagram && <IconButton href={`${mentor.instagram}`} target={"_blank"}>
                                     <FaInstagramSquare />
                                 </IconButton>}
                                 {mentor.twitter && <IconButton href={`${mentor.twitter}`} target={"_blank"}>
@@ -265,13 +262,27 @@ export const MentorSingle = (mentor: Mento) => {
                                 </IconButton>}
                                 <IconButton href={`${mentor.linkedin}`} target={"_blank"}>
                                     <FaLinkedin />
-                                </IconButton>
+                                </IconButton> */}
+                                {mentor.instagram && (
+                                    <a href={`${mentor.instagram}`} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: "transparent", color: 'white', marginRight: 10 }}>
+                                        <FaInstagramSquare />
+                                    </a>
+                                )}
+                                {mentor.twitter && (
+                                    <a href={`${mentor.twitter}`} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: "transparent", color: 'white', marginRight: 10 }}>
+                                        <FaTwitterSquare />
+                                    </a>
+                                )}
+                                <a href={`${mentor.linkedin}`} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: "transparent", color: 'white', marginRight: 10 }}>
+                                    <FaLinkedin />
+                                </a>
+
                                 {/* </Stack> */}
                             </Box>
                         </CardContainer>
                     </Grid>
                 </Grid>
-            </Modal>
+            </Modal >
         </>
     )
 }
@@ -324,7 +335,7 @@ export const TeamSingle = (mentor: Mentor) => {
                                 <p className={style.LabelLarge} style={{ color: '#aac6fe' }}>
                                     {mentor.catchy}</p>
                                 <Stack sx={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
-                                    <IconButton href={`${mentor.facebook}` || '#'} target={"_blank"}>
+                                    {/* <IconButton href={`${mentor.facebook}` || '#'} target={"_blank"}>
                                         <FaFacebookSquare />
                                     </IconButton>
                                     <IconButton href={`${mentor.instagram}`} target={"_blank"}>
@@ -335,7 +346,19 @@ export const TeamSingle = (mentor: Mentor) => {
                                     </IconButton>
                                     <IconButton href={`${mentor.linkedin}`} target={"_blank"}>
                                         <FaLinkedin />
-                                    </IconButton>
+                                    </IconButton> */}
+                                    <a href={mentor.facebook || '#'} target={"_blank"} style={{ backgroundColor: "transparent", color: 'white' }}>
+                                        <FaFacebookSquare />
+                                    </a>
+                                    <a href={mentor.instagram} target={"_blank"} style={{ backgroundColor: "transparent", color: 'white' }}>
+                                        <FaInstagramSquare />
+                                    </a>
+                                    <a href={mentor.twitter} target={"_blank"} style={{ backgroundColor: "transparent", color: 'white' }}>
+                                        <FaTwitterSquare />
+                                    </a>
+                                    <a href={mentor.linkedin} target={"_blank"} style={{ backgroundColor: "transparent", color: 'white' }}>
+                                        <FaLinkedin />
+                                    </a>
                                 </Stack>
                             </Box>
                         </CardContainer>
