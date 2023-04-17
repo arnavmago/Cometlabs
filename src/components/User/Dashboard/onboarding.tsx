@@ -3,7 +3,7 @@ import { PaperCard } from "pages/onboarding";
 import Image from "next/image";
 import Box from "@mui/material/Box";
 // import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 // import Head from "next/head";
 import { DefaultUser } from "@/backend/functions";
 // import { getSession } from "next-auth/react";
@@ -24,6 +24,7 @@ import { Education, Experience, Projects, Skills } from "@/components/User/Dashb
 // import { useRouter } from "next/router";
 import { Accept } from 'react-dropzone';
 import { handleProfileImageUpload } from "@/backend/functions";
+import style from "@/styles/typography-styles.module.css";
 
 // type onboarding = {
 //     setProfile: React.Dispatch<React.SetStateAction<string>>
@@ -58,7 +59,10 @@ const Onboarding = () => {
     return (
         <>
             <PaperCard>
-                <Typography paragraph variant="TitleLarge">Basic Details</Typography>
+                {/* <Typography paragraph variant="TitleLarge"> */}
+                <p className={style.TitleLarge}>
+                    Basic Details </p>
+                    {/* </Typography> */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <div style={{ border: "2px solid white", height: "148px", width: "148px", borderRadius: "50%" }}>
                         <div style={{ position: "relative", overflow: "hidden", width: "144px", height: "144px", borderRadius: "50%" }}>
@@ -92,7 +96,10 @@ const Onboarding = () => {
                                 >
                                     <div style={{ textAlign: "center" }}>
                                         <HiOutlineCloudUpload fontSize={"1.2rem"} />
-                                        <Typography paragraph variant="LabelLarge">Upload your Profile</Typography>
+                                        {/* <Typography paragraph variant="LabelLarge"> */}
+                                        <p className={style.LabelLarge}>
+                                            Upload your Profile </p>
+                                            {/* </Typography> */}
                                     </div>
                                 </Dropzone>
                             )}
@@ -312,14 +319,20 @@ const Onboarding = () => {
                 <Skills />
             </PaperCard>
             <PaperCard>
-                <Typography paragraph variant="TitleLarge">Link to the web</Typography>
+                {/* <Typography paragraph variant="TitleLarge"> */}
+                <p className={style.TitleLarge}>
+                    Link to the web </p>
+                    {/* </Typography> */}
                 <Stack rowGap={2}>
                     <CardContainer sx={{ backgroundColor: "surfacevariant.main" }}>
                         <Box sx={{ p: 1, px: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
 
                             <Stack direction="row">
                                 <SiFacebook fontSize="24px" />
-                                <Typography variant="TitleMedium" sx={{ ml: 1 }}>Facebook</Typography>
+                                {/* <Typography variant="TitleMedium" sx={{ ml: 1 }}> */}
+                                <p className={style.TitleMedium}>
+                                    Facebook </p>
+                                    {/* </Typography> */}
                             </Stack>
                             <Controller
                                 name="info.socials.facebookUrl"
@@ -362,7 +375,10 @@ const Onboarding = () => {
 
                             <Stack direction="row">
                                 <SiLinkedin fontSize="24px" />
-                                <Typography variant="TitleMedium" sx={{ ml: 1 }}>Linkedin</Typography>
+                                {/* <Typography variant="TitleMedium" sx={{ ml: 1 }}> */}
+                                <p className={style.TitleMedium}>
+                                    Linkedin </p>
+                                    {/* </Typography> */}
                             </Stack>
                             <Controller
                                 name="info.socials.linkedinUrl"
@@ -405,7 +421,10 @@ const Onboarding = () => {
 
                             <Stack direction="row">
                                 <SiInstagram fontSize="24px" />
-                                <Typography variant="TitleMedium" sx={{ ml: 1 }}>Instagram</Typography>
+                                {/* <Typography variant="TitleMedium" sx={{ ml: 1 }}> */}
+                                <p className={style.TitleMedium}>
+                                    Instagram </p>
+                                    {/* </Typography> */}
                             </Stack>
                             <Controller
                                 name="info.socials.instagramUrl"
@@ -448,7 +467,10 @@ const Onboarding = () => {
 
                             <Stack direction="row">
                                 <SiTwitter fontSize="24px" />
-                                <Typography variant="TitleMedium" sx={{ ml: 1 }}>Twitter</Typography>
+                                {/* <Typography variant="TitleMedium" sx={{ ml: 1 }}> */}
+                                <p className={style.TitleMedium}>
+                                    Twitter </p>
+                                    {/* </Typography> */}
                             </Stack>
                             <Controller
                                 name="info.socials.twitterUrl"
@@ -491,7 +513,10 @@ const Onboarding = () => {
 
                             <Stack direction="row">
                                 <SiGithub fontSize="24px" />
-                                <Typography variant="TitleMedium" sx={{ ml: 1 }}>Github</Typography>
+                                {/* <Typography variant="TitleMedium" sx={{ ml: 1 }}> */}
+                                <p className={style.TitleMedium}>
+                                    Github </p>
+                                    {/* </Typography> */}
                             </Stack>
                             <Controller
                                 name="info.socials.githubUrl"
@@ -535,7 +560,10 @@ const Onboarding = () => {
 
                             <Stack direction="row">
                                 <SiLeetcode fontSize="24px" />
-                                <Typography variant="TitleMedium" sx={{ ml: 1 }}>Leetcode</Typography>
+                                {/* <Typography variant="TitleMedium" sx={{ ml: 1 }}> */}
+                                <p className={style.TitleMedium}>
+                                    Leetcode </p>
+                                    {/* </Typography> */}
                             </Stack>
                             <Controller
                                 name="info.socials.leetcodeUrl"

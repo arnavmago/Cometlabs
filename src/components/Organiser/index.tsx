@@ -1,8 +1,10 @@
-// import { OutlinedButton } from "@/styles/theme";
-import { Typography, Grid } from "@mui/material";
+//import { OutlinedButton } from "@/styles/theme";
+// import { Typography, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 // import { SiFacebook, SiGithub, SiInstagram, SiLinkedin, SiTwitter, SiLeetcode } from "react-icons/si";
 import ProfileCard from "../User/Dashboard/ProfileCard";
 import { ResumeInfo } from "../User/Dashboard/types";
+import style from "@/styles/typography-styles.module.css";
 
 export interface RegUserInfo {
     email: string;
@@ -36,14 +38,17 @@ const Organiser = ({ Title, Data }: Info) => {
     if (Data.length == 0) {
         return (
             <div style={{ margin: "30px" }}>
-                <Typography variant="TitleLarge" paragraph>{Title}</Typography>
-                <Typography variant="TitleMedium" sx={{ textAlign: "center" }} paragraph>Currently, There are NO Registered Users</Typography>
+                {/* <Typography variant="TitleLarge" paragraph>{Title}</Typography> */}
+                <p className={style.TitleLarge}>{Title}</p>
+                {/* <Typography variant="TitleMedium" sx={{ textAlign: "center" }} paragraph>Currently, There are NO Registered Users</Typography> */}
+                <p className={style.TitleMedium} style={{ textAlign: "center" }}>Currently, There are NO Registered Users</p>
             </div>
         )
     }
     return (
         <div style={{ margin: "30px" }}>
-            <Typography variant="TitleLarge" paragraph>{Title}</Typography>
+            {/* <Typography variant="TitleLarge" paragraph>{Title}</Typography> */}
+            <p className={style.TitleLarge}>{Title}</p>
             <Grid container sx={{ ml: 2 }}>
                 {Data.map((data) => {
                     return (

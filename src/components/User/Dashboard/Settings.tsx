@@ -1,8 +1,10 @@
 import { FilledButton, OutlinedButton } from "@/styles/theme";
-import { Box, Grid, InputAdornment, TextField, Typography } from "@mui/material";
+// import { Box, Grid, InputAdornment, TextField, Typography } from "@mui/material";
+import { Box, Grid, InputAdornment, TextField } from "@mui/material";
 import { useSnackbar } from "notistack";
 // import { useForm, Controller } from "react-hook-form";
 import * as React from "react";
+import style from "@/styles/typography-styles.module.css";
 import MuiPhoneNumber from "material-ui-phone-number";
 import { ConfirmationResult, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "@/lib/firebase";
@@ -73,13 +75,19 @@ const Settings = ({ info, Username }: SettingsNumber) => {
 
     return (
         <div style={{ margin: "30px 60px" }}>
-            <Typography variant="HeadlineSmall" color="primary">Personal Details</Typography>
+            {/* <Typography variant="HeadlineSmall" color="primary"> */}
+            <p className={style.HeadlineSmall}>
+                Personal Details </p>
+                {/* </Typography> */}
             <Box sx={{
                 marginTop: 2,
                 alignItems: "center",
                 width: "100%",
             }}>
-                <Typography variant="LabelLarge">Change Email Address</Typography>
+                {/* <Typography variant="LabelLarge"> */}
+                <p className={style.LabelLarge}>
+                    Change Email Address </p>
+                    {/* </Typography> */}
                 <Grid container spacing={2}>
                     <Grid item lg={8} sx={{
                         width: "100%", "& .MuiFormHelperText-root ": {
@@ -118,7 +126,10 @@ const Settings = ({ info, Username }: SettingsNumber) => {
                                             sx={{ borderRadius: "4px" }}
                                             onClick={() => { handleEmailOtpSend() }}
                                         >
-                                            <Typography variant="LabelMedium">Get OTP</Typography>
+                                            {/* <Typography variant="LabelMedium"> */}
+                                            <p className={style.LabelMedium}>
+                                                Get OTP </p>
+                                                {/* </Typography> */}
                                         </OutlinedButton>
                                     </InputAdornment>
                                 ),
@@ -199,7 +210,10 @@ const Settings = ({ info, Username }: SettingsNumber) => {
                                             }
                                         }}
                                     >
-                                        <Typography variant="LabelMedium">Submit</Typography>
+                                        {/* <Typography variant="LabelMedium"> */}
+                                        <p className={style.LabelMedium}>
+                                            Submit </p>
+                                            {/* </Typography> */}
                                     </FilledButton>
                                 ),
                             }}
@@ -213,7 +227,10 @@ const Settings = ({ info, Username }: SettingsNumber) => {
                 alignItems: "center",
                 width: "100%",
             }}>
-                <Typography variant="LabelLarge">Change Mobile Number</Typography>
+                {/* <Typography variant="LabelLarge"> */}
+                <p className={style.LabelLarge}>
+                    Change Mobile Number </p>
+                    {/* </Typography> */}
                 <Grid container spacing={2}>
                     <Grid item xs={12} lg={8}>
                         <MuiPhoneNumber
@@ -275,7 +292,10 @@ const Settings = ({ info, Username }: SettingsNumber) => {
                                                     });
                                             }}
                                         >
-                                            <Typography variant="LabelMedium">Get OTP</Typography>
+                                            {/* <Typography variant="LabelMedium"> */}
+                                            <p className={style.LabelMedium}>
+                                                Get OTP </p>
+                                                {/* </Typography> */}
                                         </OutlinedButton>
                                     </InputAdornment>
                                 ),
@@ -332,7 +352,10 @@ const Settings = ({ info, Username }: SettingsNumber) => {
                                             });
                                         }}
                                     >
-                                        <Typography variant="LabelMedium">Submit</Typography>
+                                        {/* <Typography variant="LabelMedium"> */}
+                                        <p className={style.LabelMedium}>
+                                            Submit </p>
+                                            {/* </Typography> */}
                                     </FilledButton>
                                 ),
                             }}
@@ -346,7 +369,10 @@ const Settings = ({ info, Username }: SettingsNumber) => {
                 alignItems: "center",
                 width: "100%",
             }}>
-                <Typography variant="LabelLarge">Change Username</Typography>
+                {/* <Typography variant="LabelLarge"> */}
+                <p className={style.LabelLarge}>
+                    Change Username </p>
+                    {/* </Typography> */}
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <TextField
                         margin="normal"
@@ -413,7 +439,10 @@ const Settings = ({ info, Username }: SettingsNumber) => {
                                         }
                                     }}
                                 >
-                                    <Typography variant="LabelMedium">Submit</Typography>
+                                    {/* <Typography variant="LabelMedium"> */}
+                                    <p className={style.LabelMedium}>
+                                        Submit </p>
+                                        {/* </Typography> */}
                                 </OutlinedButton>
                             ),
                         }}
@@ -443,7 +472,10 @@ const Settings = ({ info, Username }: SettingsNumber) => {
                             });
                         }}
                     >
-                        <Typography variant="LabelMedium">Submit</Typography>
+                        {/* <Typography variant="LabelMedium"> */}
+                        <p className={style.LabelMedium}>
+                            Submit </p>
+                            {/* </Typography> */}
                     </FilledButton>
                 </div>
             </Box>

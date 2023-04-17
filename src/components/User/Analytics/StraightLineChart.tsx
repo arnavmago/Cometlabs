@@ -1,6 +1,8 @@
-import { Box, Stack, Typography } from "@mui/material";
+// import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Line, CartesianGrid } from 'recharts';
 import { LineChartGraph } from "@/components/User/Dashboard/types";
+import style from "@/styles/typography-styles.module.css";
 
 interface graph {
     data: LineChartGraph[];
@@ -9,7 +11,10 @@ interface graph {
 const LineChartGraph = ({ data }: graph) => {
     return (
         <Box sx={{ width: '100%' }}>
-            <Typography variant="LabelLarge">Rankings</Typography>
+            {/* <Typography variant="LabelLarge"> */}
+            <p className={style.LabelLarge}>
+                Rankings </p>
+                {/* </Typography> */}
             <Stack sx={{ alignItems: 'center' }}>
                 <ResponsiveContainer width="70%" aspect={4 / 1}>
                     <LineChart data={data}>

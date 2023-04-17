@@ -1,11 +1,13 @@
 import { CardContainer, FilledButton } from '@/styles/theme'
-import { Grid, Typography, Stack, TextField, InputAdornment, IconButton, Container } from '@mui/material'
+// import { Grid, Typography, Stack, TextField, InputAdornment, IconButton, Container } from '@mui/material'
+import { Grid, Stack, TextField, InputAdornment, IconButton, Container } from '@mui/material'
 import React from 'react'
 import { Controller, useForm } from "react-hook-form";
 import { SignInFormData } from './SigninArea';
 import { useSnackbar } from 'notistack';
 import * as NextAuth from "next-auth/react";
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md';
+import style from "@/styles/typography-styles.module.css";
 
 interface SignIn {
     authToken: string;
@@ -79,9 +81,10 @@ function PasswordSignin({ authToken, pass }: SignIn) {
                     width: "100%",
                 }}>
                     <Grid item lg={6} component="form" sx={{ p: 2, width: "100%" }} onSubmit={handleSubmit(onpasswordsubmit)} noValidate>
-                        <Typography variant="TitleLarge">
+                        {/* <Typography variant="TitleLarge">
                             Enter new password
-                        </Typography>
+                        </Typography> */}
+                        <p className={style.TitleLarge}>Enter new password</p>
                         <Stack direction="column" spacing={2} alignItems="baseline" sx={{ mt: "67px" }}>
                             <Controller
                                 name="password"
@@ -184,9 +187,10 @@ function PasswordSignin({ authToken, pass }: SignIn) {
                             sx={{ mt: "75px", mb: 2, float: "right" }}
                             disabled={isSubmitting}
                         >
-                            <Typography variant="LabelMedium">
+                            {/* <Typography variant="LabelMedium">
                                 Reset Password
-                            </Typography>
+                            </Typography> */}
+                            <p className={style.LabelMedium}>Reset Password</p>
                         </FilledButton>
                     </Grid>
                 </Grid>

@@ -5,9 +5,10 @@ import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import { DefaultUser } from "@/backend/functions";
 
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import { InternalLinks } from '@/content/Links';
 import { FilledButton } from '@/styles/theme';
+import style from "@/styles/typography-styles.module.css";
 // import ReactPlayer from "react-player/lazy";
 
 
@@ -22,27 +23,42 @@ const ReactPlayer = dynamic(() => import("@/components/Banners/VideoPlayer"), {
 export default function CodeArenaBanner() {
 
   const Heading = (
-    <Typography variant="DisplaySmall" component="p" sx={{ mb: "24px" }}>
-      <Typography variant="DisplaySmall">
+    // <Typography variant="DisplaySmall" component="p" sx={{ mb: "24px" }}>
+      <p className={style.DisplaySmall} style={{ marginBottom: '24px' }}>
         {"Explore CodeArenas on "}
-      </Typography>
-      <Typography color="color2.main" variant="DisplaySmall">
+      </p>
+      {/* <Typography variant="DisplaySmall">
+        {"Explore CodeArenas on "}
+      </Typography> */}
+      {/* <Typography color="color2.main" variant="DisplaySmall">
         {"COMETLABS "}
-      </Typography>
-      <Typography variant="DisplaySmall">
+      </Typography> */}
+      <p className={style.DisplaySmall} style={{ color:'#FFCF27' }}>
+      {"COMETLABS "}
+      </p>
+      {/* <Typography variant="DisplaySmall">
         {"and Judge your "}
-      </Typography>
-      <Typography color="color1.main" variant="DisplaySmall">
+      </Typography> */}
+      <p className={style.DisplaySmall}>
+      {"and Judge your "}
+      </p>
+      {/* <Typography color="color1.main" variant="DisplaySmall">
         {"Dev Skills"}
-      </Typography>
-    </Typography>
+      </Typography> */}
+      <p className={style.DisplaySmall} style={{ color:'#AE86EF' }}>
+      {"Dev Skills"}
+      </p>
+    {/* </Typography> */}
 
   );
 
   const Description = (
-    <Typography variant="BodyLarge" component="p" color="onsurfacevariant.main" sx={{ mb: "48px" }}>
-      {`Join niche clubs, interact with experts, explore, network with high-profile and ambitious individuals, get internships, and join India’s largest community all for free!`}
-    </Typography>
+    // <Typography variant="BodyLarge" component="p" color="onsurfacevariant.main" sx={{ mb: "48px" }}>
+    //   {`Join niche clubs, interact with experts, explore, network with high-profile and ambitious individuals, get internships, and join India’s largest community all for free!`}
+    // </Typography>
+    <p className={style.BodyLarge} style={{ color:'#C4C6D0', marginBottom: '48px' }}>
+    {`Join niche clubs, interact with experts, explore, network with high-profile and ambitious individuals, get internships, and join India’s largest community all for free!`}
+    </p>
   )
 
   const { data: session } = useSession();
@@ -94,14 +110,20 @@ export default function CodeArenaBanner() {
   const Tertiary = (
     <>
       <FilledButton variant="filled" sx={{ mt: 1, ml: 1 }} onClick={handleOrganizeClick}>
-        <Typography variant="LabelLarge" >
+        {/* <Typography variant="LabelLarge" >
           Organise CodeArenas & Hackathons
-        </Typography>
+        </Typography> */}
+        <p className={style.LabelLarge}>
+        Organise CodeArenas & Hackathons
+      </p>
       </FilledButton>
       {role === "admin" && <FilledButton variant="filled" sx={{ mt: 1, ml: 1 }} onClick={handleAdminClick}>
-        <Typography variant="LabelLarge" >
+        {/* <Typography variant="LabelLarge" >
           Admin Dashboard
-        </Typography>
+        </Typography> */}
+        <p className={style.LabelLarge}>
+        Admin Dashboard
+      </p>
       </FilledButton>}
     </>
   );

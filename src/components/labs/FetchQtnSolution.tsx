@@ -1,9 +1,10 @@
-import { Box, Stack, Typography, Paper, Grid } from "@mui/material";
+import { Box, Stack, Paper, Grid } from "@mui/material";
 import { GrRefresh } from "react-icons/gr";
 import * as React from "react";
 import { BiChevronUp, BiChevronDown } from "react-icons/bi"
 import { useSession } from "next-auth/react";
 import { DefaultUser } from "@/backend/functions";
+import style from "@/styles/typography-styles.module.css";
 
 export interface submis {
     user_id: string;
@@ -72,12 +73,13 @@ const FetchQtnSolution = ({ submission }: submission) => {
     return (
         <Box sx={{ width: "100%", padding: "44px 0", position: "relative", "& .MuiGrid-item": { padding: 0, m: 1 } }}>
             <Stack direction="row" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent: "center" }}>
-                <Typography
+                {/* <Typography
                     variant="LabelLarge"
                     sx={{ flexGrow: 1, maxWidth: `calc(100vw - 200px)`, marginBottom: "30px" }}
                     noWrap>
                     Past Submissions
-                </Typography>
+                </Typography> */}
+                <p className={style.TitleLarge} style={{ maxWidth: 'calc(100vw-200px)' }}>Past Submissions</p>
                 {/* <IconButton
                     color="primary"
                     onClick={() => HandleLoad()}
@@ -99,7 +101,8 @@ const FetchQtnSolution = ({ submission }: submission) => {
                     })}
                 </Grid>
             ) : (
-                <Typography variant="LabelLarge">NO Past Submissions found</Typography>
+                // <Typography variant="LabelLarge">NO Past Submissions found</Typography>
+                <p className={style.LabelLarge}>NO Past Submissions found</p>
             )}
         </Box>
     )
@@ -114,8 +117,10 @@ const SubmitCard = (prop: submis) => {
             <Paper onClick={() => { setExpanded(!expanded) }} sx={{ padding: 2, height: "100%", borderRadius: "20px", transition: "1s", display: "flex", flexDirection: "column" }}>
                 <Stack sx={{ pl: 3, pr: 3 }}>
                     <Stack direction="row" sx={{ display: "flex", justifyContent: "space-between", alignContent: "center", alignItems: "center" }}>
-                        <Typography variant="LabelLarge">{prop.Status}</Typography>
-                        <Typography variant="LabelLarge">{new Date(parseInt(prop.Submission_Time)).toLocaleTimeString().replace("T", " ").split(".")[0]}</Typography>
+                        {/* <Typography variant="LabelLarge">{prop.Status}</Typography> */}
+                        <p className={style.LabelLarge}>{prop.Status}</p>
+                        {/* <Typography variant="LabelLarge">{new Date(parseInt(prop.Submission_Time)).toLocaleTimeString().replace("T", " ").split(".")[0]}</Typography> */}
+                        <p className={style.LabelLarge}>{new Date(parseInt(prop.Submission_Time)).toLocaleTimeString().replace("T", " ").split(".")[0]}</p>
                         {/* <IconButton
                             color="primary"
                             onClick={() => { setExpanded(!expanded) }}
@@ -141,11 +146,15 @@ const SubmitCard = (prop: submis) => {
                     {!!expanded &&
                         <Stack rowGap={1} sx={{ pt: 2, justifyContent: "center", alignItems: "center" }}>
                             <Stack direction="row" sx={{ display: "flex", width: "100%", justifyContent: "space-around" }}>
-                                <Typography variant="LabelLarge">{`Total : ${prop.Testcase_Total}`}</Typography>
-                                <Typography variant="LabelLarge">{`Failed : ${prop.Testcase_Failed}`}</Typography>
-                                <Typography variant="LabelLarge">{`Passed : ${prop.Testcase_Passed}`}</Typography>
+                                {/* <Typography variant="LabelLarge">{`Total : ${prop.Testcase_Total}`}</Typography> */}
+                                <p className={style.LabelLarge}>{`Total : ${prop.Testcase_Total}`}</p>
+                                {/* <Typography variant="LabelLarge">{`Failed : ${prop.Testcase_Failed}`}</Typography> */}
+                                <p className={style.LabelLarge}>{`Failed : ${prop.Testcase_Failed}`}</p>
+                                {/* <Typography variant="LabelLarge">{`Passed : ${prop.Testcase_Passed}`}</Typography> */}
+                                <p className={style.LabelLarge}>{`Passed : ${prop.Testcase_Passed}`}</p>
                             </Stack>
-                            <Typography variant="LabelLarge">{`Output : ${prop.Testcase_Run}`}</Typography>
+                            {/* <Typography variant="LabelLarge">{`Output : ${prop.Testcase_Run}`}</Typography> */}
+                            <p className={style.LabelLarge}>{`Output : ${prop.Testcase_Run}`}</p>
                         </Stack>
                     }
                 </Stack>

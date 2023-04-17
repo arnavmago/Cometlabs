@@ -1,7 +1,10 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import { Box, Stack, Typography } from "@mui/material";
+// import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { PiChartGraph } from '@/components/User/Dashboard/types';
+import style from "@/styles/typography-styles.module.css";
+
 
 interface graph {
   data?: PiChartGraph[];
@@ -78,7 +81,11 @@ const PieChartGraph = ({ data }: graph) => {
   const dataaaa = data ? data : dummydata;
   return (
       <div style={{ margin: "30px 60px" }}>
-          <Typography variant="HeadlineSmall" color="primary">Submissions</Typography>
+          {/* <Typography variant="HeadlineSmall" color="primary"> */}
+          <p className={style.HeadlineSmall}>
+            Submissions
+            {/* </Typography> */}
+            </p>
           <Box sx={{
               marginTop: 2,
               alignItems: "center",

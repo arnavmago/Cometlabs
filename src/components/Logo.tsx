@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import * as React from "react";
+import style from "@/styles/typography-styles.module.css";
 
 interface footer {
   isDark?: boolean;
@@ -27,12 +28,14 @@ export default function Logo({ isDark }: footer) {
           height={14}
           width={110}
         />
-        <Typography paragraph sx={{ mb: 0, mt: -0.5 }}
+        {/* <Typography paragraph sx={{ mb: 0, mt: -0.5 }}
           color="onsurfacevariant.main"
           variant="LabelSmall"
-        >
+        > */}
+        <p className={style.LabelSmall} style={{ color: "#c4c6d0" }}>
           (Backed by CIE-IIITH)
-        </Typography>
+        </p>
+        {/* </Typography> */}
       </Box>
     )
   }
@@ -45,12 +48,14 @@ export default function Logo({ isDark }: footer) {
         height={14}
         width={110}
       />
-      <Typography paragraph sx={{ mb: 0, mt: -0.5 }}
+      {/* <Typography paragraph sx={{ mb: 0, mt: -0.5 }}
         color="onsurfacevariant.main"
         variant="LabelSmall"
-      >
+      > */}
+      <p className={style.LabelSmall} style={{ color: "#c4c6d0" }}>
         (Backed by CIE-IIITH)
-      </Typography>
+      </p>
+      {/* </Typography> */}
     </Box>
   );
 }

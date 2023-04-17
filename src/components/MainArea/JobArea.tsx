@@ -1,7 +1,7 @@
-import { Typography, Paper, Box, Grid, styled } from '@mui/material';
+import { Paper, Box, Grid, styled } from '@mui/material';
 import React from 'react';
 import Image from "next/image";
-
+import style from "@/styles/typography-styles.module.css";
 
 interface JOB {
     name: string,
@@ -28,7 +28,8 @@ const JobCard = (job: JOB) => {
                     objectFit="cover"
                     alt={job.name + "-logo"} />
             </Box>
-            <Typography variant="LabelLarge" align="center" width={42}>{job.name}</Typography>
+            {/* <Typography variant="LabelLarge" align="center" width={42}>{job.name}</Typography> */}
+            <p className={style.LabelLarge} style={{ alignContent: 'centre', width: '42px'}}>{job.name}</p>
         </CardContainer>
     );
 }
@@ -37,12 +38,15 @@ const JobCard = (job: JOB) => {
 function JobArea() {
     return (
         <Box sx={{ marginBottom: "50px" }}>
-            <Typography variant="LabelLarge"
-                sx={{ flexGrow: 1, maxWidth: `calc(100vw - 200px)`, marginBottom: "30px" }}
+            {/* <Typography variant="LabelLarge" */}
+                {/* sx={{ flexGrow: 1, maxWidth: `calc(100vw - 200px)`, marginBottom: "30px" }}
                 noWrap
             >
                 Find jobs for your other skills
-            </Typography>
+            </Typography> */}
+            <p className={style.LabelLarge} style={{flexGrow: '1', maxWidth: 'calc(100vw - 200px)', marginBottom: '30px'}}>
+            Find jobs for your other skills
+            </p>
             <Grid container direction="row" spacing={2} justifyContent="center" alignItems="center">
                 {JOBS.map((job) => {
                     return (

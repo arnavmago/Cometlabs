@@ -1,8 +1,11 @@
 import { CardContainer } from "@/styles/theme";
-import { Box, Grid, Stack, Typography, ButtonBase, IconButton } from "@mui/material";
+//import { Style } from "@material-ui/icons";
+// import { Box, Grid, Stack, Typography, ButtonBase, IconButton } from "@mui/material";
+import { Box, Grid, Stack,  ButtonBase, IconButton } from "@mui/material";
 import Image from "next/image";
 import * as React from "react";
 import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
+import style from "@/styles/typography-styles.module.css";
 export interface Mentor {
     name: string,
     designation: string,
@@ -34,10 +37,13 @@ const MentorCard = (props: Mentor) => {
             {!!expanded &&
                 <Stack rowGap={1} sx={{ padding: 2, width: 196, justifyContent: "center", alignItems: "center", textAlign: "center" }}>
                     <Stack>
-                        <Typography variant="LabelLarge">{props.name}</Typography>
-                        <Typography variant="LabelLarge">{props.designation}</Typography>
+                        {/* <Typography variant="LabelLarge">{props.name}</Typography> */}
+                        <p className={style.LabelLarge}>{props.name}</p>
+                        {/* <Typography variant="LabelLarge">{props.designation}</Typography> */}
+                        <p className={style.LabelLarge}>{props.designation}</p>
                     </Stack>
-                    <Typography variant="LabelLarge">{props.catchy}</Typography>
+                    {/* <Typography variant="LabelLarge">{props.catchy}</Typography> */}
+                    <p className={style.LabelLarge}>{props.catchy}</p>
                     <Stack sx={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
                         <IconButton sx={{ padding: "4px", color: "black", fontSize: "1.25rem" }} href={`${props.facebook}` || '#'} target={"_blank"}>
                             <FaFacebookSquare />
@@ -63,12 +69,14 @@ const MentorCard = (props: Mentor) => {
 const MentorArea = () => {
     return (
         <Box sx={{ width: "100%", padding: "44px 0", position: "relative" }}>
-            <Typography
+            {/* <Typography
                 variant="HeadlineMedium" paragraph
                 sx={{ flexGrow: 1, maxWidth: `calc(100vw - 200px)`, marginBottom: "30px" }}
-                noWrap>
+                noWrap> */}
+                <p className={style.HeadlineMedium} >
                 Team Members
-            </Typography>
+            {/* </Typography> */}
+            </p>
             <Grid direction="row" sx={{ padding: "0 20px" }} container spacing={2} justifyContent="space-evenly" alignItems="center">
                 {MENTORS.map((mentor) => {
                     return (

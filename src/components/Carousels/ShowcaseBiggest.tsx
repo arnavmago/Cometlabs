@@ -12,6 +12,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { biggestcard } from "@/components/Carousels/responsive";
+import style from "@/styles/typography-styles.module.css";
 
 interface ShowcaseProps {
   title: string;
@@ -32,13 +33,14 @@ const ShowcaseBiggest: React.FC<ShowcaseProps> = (props) => {
     return (
       <Box sx={{ position: "absolute", top: 0, width: "100%" }}>
         <Stack direction="row" alignItems="center" spacing={2}>
-          <Typography
+          {/* <Typography
             variant="TitleLarge"
             sx={{ flexGrow: 1, maxWidth: `calc(100vw - 200px)` }}
             noWrap
           >
             {props.title}
-          </Typography>
+          </Typography> */}
+          <p className={style.TitleLarge} style={{ maxWidth: 'calc(100vw-200px)' }}></p>
           <div style={{ display: "flex" }}>
             {/* <IconButton aria-label="previous" onClick={() => !!previous && previous()}>
               <HiOutlineArrowCircleLeft />

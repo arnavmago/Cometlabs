@@ -8,7 +8,8 @@ import Logo from "@/components/Logo";
 
 // contains different links used in website
 import { InternalLinks } from "@/content/Links";
-import { Box, Grid, Stack, Typography, Divider, Drawer, IconButton, AppBar, Toolbar, Tooltip } from "@mui/material";
+// import { Box, Grid, Stack, Typography, Divider, Drawer, IconButton, AppBar, Toolbar, Tooltip } from "@mui/material";
+import { Box, Grid, Stack, Divider, Drawer, IconButton, AppBar, Toolbar, Tooltip } from "@mui/material";
 // import { makeStyles } from '@mui/material/styles';
 import { HiMenu } from "react-icons/hi";
 //for logged in user, to show secondary header
@@ -16,6 +17,7 @@ import HeaderMenu from "./HeaderMenu";
 import { DefaultUser } from "@/backend/functions";
 import { FilledButton, TextButton } from "@/styles/theme";
 import { useSession } from "next-auth/react";
+import style from "@/styles/typography-styles.module.css";
 
 interface HeaderProps {
     noLogo?: boolean;
@@ -42,13 +44,19 @@ export default function Header({ type, id, noLogo, window }: HeaderProps) {
     const LoginOptions = () => (
         <Stack direction="row" justifyContent="flex-end" spacing={1}>
             <TextButton href={InternalLinks.SIGNUP_PAGE}>
-                <Typography variant="BodyMedium" color="primary.main">Sign up</Typography>
+                {/* <Typography variant="BodyMedium" color="primary.main"> */}
+                <p className={style.BodyMedium} style={{ color: "#c4c6d0" }}>
+                    Sign up </p>
+                {/* </Typography> */}
             </TextButton>
             <FilledButton
                 variant="contained"
                 href={InternalLinks.SIGNIN_PAGE}
             >
-                <Typography variant="BodyMedium" color="onprimary.main">Login</Typography>
+                {/* <Typography variant="BodyMedium" color="onprimary.main"> */}
+                <p className={style.BodyMedium} style={{ color: "#c4c6d0" }}>
+                    Login </p>
+                {/* </Typography> */}
             </FilledButton>
         </Stack>
     );
@@ -95,13 +103,14 @@ export default function Header({ type, id, noLogo, window }: HeaderProps) {
     const links = (
         <>
             <Link href={InternalLinks.LANDING_PAGE + `/Explore/${type}/Dashboard/Dev/` + id} hoverStyle>
-                <Typography
+                {/* <Typography
                     component="span"
                     color="textPrimary"
                     variant="LabelLarge"
-                >
-                    Team & Details
-                </Typography>
+                > */}
+                <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+                    Team & Details </p>
+                {/* </Typography> */}
             </Link>
             {/* <Link href={"#"} hoverStyle>
                 <Typography
@@ -114,23 +123,25 @@ export default function Header({ type, id, noLogo, window }: HeaderProps) {
             </Link> */}
             {previewId != "#" ? (
                 <Link href={previewId} hoverStyle>
-                    <Typography
+                    {/* <Typography
                         component="span"
                         color="textPrimary"
                         variant="LabelLarge"
-                    >
-                        Preview
-                    </Typography>
+                    > */}
+                    <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+                        Preview </p>
+                    {/* </Typography> */}
                 </Link>
             ) : (
                 <Tooltip title="Submit to See Preivew">
-                    <Typography
+                    {/* <Typography
                         component="span"
                         color="textPrimary"
                         variant="LabelLarge"
-                    >
-                        Preview
-                    </Typography>
+                    > */}
+                    <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+                        Preview </p>
+                    {/* </Typography> */}
                 </Tooltip>
             )}
             {/* <Link href={ExternalLinks.COMMUNITY_PAGE.href} hoverStyle> */}

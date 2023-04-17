@@ -1,6 +1,8 @@
-import { Typography } from '@mui/material';
+// import { Typography } from '@mui/material';
 import React from 'react';
 import Problems, { Problem } from './ProblemsPage';
+import style from "@/styles/typography-styles.module.css";
+
 
 interface framework {
   problem: Problem[];
@@ -18,7 +20,11 @@ function Questions({ problem }: framework) {
           )
         })
       ) : (
-        <Typography sx={{ mt: 2 }} variant="LabelLarge">No Questions found</Typography>
+        // <Typography sx={{ mt: 2 }} variant="LabelLarge">
+        <p className={style.LabelLarge}>
+          No Questions found
+          {/* </Typography> */}
+        </p>
       )}
     </div>
   )

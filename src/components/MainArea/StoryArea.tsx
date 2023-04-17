@@ -1,8 +1,9 @@
 import { CardContainer } from "@/styles/theme";
-import { Grid, Box, Stack, Typography } from "@mui/material";
+// import { Grid, Box, Stack, Typography } from "@mui/material";
+import { Grid, Box, Stack } from "@mui/material";
 import Image from "next/image";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
-
+import style from "@/styles/typography-styles.module.css";
 
 interface Story {
     name: string,
@@ -36,19 +37,23 @@ const StoryCard = (props: Story) => {
                         />
                     </Box>
                     <Stack>
-                        <Typography variant="LabelLarge">
+                        {/* <Typography variant="LabelLarge">
                             {props.name}
-                        </Typography>
-                        <Typography variant="LabelLarge" color="testSecondary">
+                        </Typography> */}
+                        <p className={style.LabelLarge}>{props.name}</p>
+                        {/* <Typography variant="LabelLarge" color="testSecondary">
                             {props.designation}
-                        </Typography>
+                        </Typography> */}
+                        <p className={style.LabelLarge} style={{ color: "testSecondary" }}>{props.name}</p>
                     </Stack>
                 </Stack>
-                <Typography variant={"LabelLarge"} sx={{ minHeight: "160px" }}>
+                {/* <Typography variant={"LabelLarge"} sx={{ minHeight: "160px" }}>
                     {props.story}
-                </Typography>
+                </Typography> */}
+                <p className={style.LabelLarge}>{props.story}</p>
                 <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <Typography variant="LabelLarge">Was it helpful?</Typography>
+                    {/* <Typography variant="LabelLarge">Was it helpful?</Typography> */}
+                    <p className={style.LabelLarge}>Was it helpful</p>
                     <FaThumbsUp style={{ marginLeft: "10px" }} />
                     <FaThumbsDown style={{ marginLeft: "10px" }} />
                 </div>
@@ -66,12 +71,14 @@ const StoryArea = () => {
             padding: "44px 0",
             position: "relative"
         }}>
-            <Typography
+            {/* <Typography
                 variant="TitleLarge" paragraph
                 sx={{ flexGrow: 1, maxWidth: `calc(100vw - 200px)`, marginBottom: "30px" }}
-                noWrap>
+                noWrap> */}
+            <p className={style.TitleLarge}>
                 Read out some stories of our developers.
-            </Typography>
+                {/* </Typography> */}
+            </p>
             <Grid container sx={{ padding: "0 20px" }} spacing={4} justifyContent="center" alignItems="center">
                 {Stories.map((story) => {
                     return (

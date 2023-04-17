@@ -1,6 +1,9 @@
 import { CardContainer } from "@/styles/theme";
-import { Box, Typography, Grid } from "@mui/material";
+// import { Box, Typography, Grid } from "@mui/material";
+import { Box,  Grid } from "@mui/material";
 import Image from "next/image";
+import style from "@/styles/typography-styles.module.css";
+
 
 
 interface JoinUs {
@@ -8,7 +11,6 @@ interface JoinUs {
     imageUrl: string,
     description: string,
 }
-
 
 
 // Single card of joinus area
@@ -28,8 +30,11 @@ const JoinUsCard = (props: JoinUs) => {
                     alt={props.name + "-logo"} />
             </Box>
             <Grid>
-                <Typography variant="LabelLarge" color="primary">{props.name}</Typography>
-                <Typography variant="LabelLarge">{props.description}</Typography>
+                {/* <Typography variant="LabelLarge" color="primary">{props.name}</Typography> */}
+                <p className={style.LabelLarge} style={{color:"primary"}}>{props.name}</p>
+                {/* <Typography variant="LabelLarge">{props.description}</Typography> */}
+                <p className={style.LabelLarge} >{props.description}</p>
+                
             </Grid>
         </CardContainer>
     );
@@ -40,12 +45,14 @@ const JoinUsCard = (props: JoinUs) => {
 const JoinUsArea = () => {
     return (
         <Box sx={{ width: "100%", padding: "44px 0", position: "relative", }}>
-            <Typography variant="LabelLarge"
+            {/* <Typography variant="LabelLarge"
                 sx={{ flexGrow: 1, maxWidth: `calc(100vw - 200px)`, marginBottom: "30px", textAlign: "center" }}
                 noWrap
-            >
+            > */}
+            <p className={style.LabelLarge} style={{flexGrow: 1, maxWidth: `calc(100vw - 200px)`, marginBottom: "30px", textAlign: "center" }}>
                 India’s First Developer Engaging + Talent Hiring Focused Community
-            </Typography>
+            {/* </Typography> */}
+            </p>
             <Grid container sx={{ padding: "0 20px" }} direction="row" spacing={2} justifyContent="center" alignItems="center">
                 {JOINUS.map((joinus) => {
                     return (

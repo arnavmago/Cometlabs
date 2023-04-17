@@ -14,6 +14,7 @@ import { HiMenu } from "react-icons/hi";
 import HeaderMenu from "./HeaderMenu";
 import { DefaultUser } from "@/backend/functions";
 import { FilledButton, TextButton } from "@/styles/theme";
+import style from "@/styles/typography-styles.module.css";
 
 interface HeaderProps {
   noLogo?: boolean;
@@ -46,13 +47,19 @@ export default function Header(props: HeaderProps) {
   const LoginOptions = () => (
     <Stack direction="row" justifyContent="flex-end" spacing={1}>
       <TextButton href={InternalLinks.SIGNUP_PAGE}>
-        <Typography variant="BodyMedium" color="primary.main">Sign up</Typography>
+        {/* <Typography variant="BodyMedium" color="primary.main"> */}
+        <p className={style.BodyMedium} style={{ color: "#c4c6d0" }}>
+          Sign up </p>
+        {/* </Typography> */}
       </TextButton>
       <FilledButton
         variant="contained"
         href={InternalLinks.SIGNIN_PAGE}
       >
-        <Typography variant="BodyMedium" color="onprimary.main">Login</Typography>
+        {/* <Typography variant="BodyMedium" color="onprimary.main"> */}
+        <p className={style.BodyMedium} style={{ color: "#c4c6d0" }}>
+          Login </p>
+        {/* </Typography> */}
       </FilledButton>
     </Stack>
   );
@@ -66,7 +73,8 @@ export default function Header(props: HeaderProps) {
         color="textPrimary"
         variant="TitleMedium" sx={hoverStyles}
       >
-        Explore
+        {/* <p className={style.TitleMedium} style={{  color:"textPrimary"}}>
+        Explore </p> */}
       </Typography>
       <Typography
         onClick={() => { router.push(InternalLinks.CAREERS_PAGE) }}

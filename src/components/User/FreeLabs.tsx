@@ -1,5 +1,6 @@
 import { StyledCardContainer } from "@/styles/theme";
-import { Chip, Grid, Typography, IconButton, TextField, MenuItem, Avatar } from "@mui/material"
+// import { Chip, Grid, Typography, IconButton, TextField, MenuItem, Avatar } from "@mui/material"
+import { Chip, Grid,  IconButton, TextField, MenuItem, Avatar } from "@mui/material"
 import { LABS } from "pages/Dashboards/Dev/[id]";
 import { useRouter } from "next/router";
 // import { ExternalLinks } from "@/content/Links";
@@ -7,6 +8,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { MdDelete } from 'react-icons/md';
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
+import style from "@/styles/typography-styles.module.css";
 
 interface FreeLabs {
     freelabs: LABS[];
@@ -43,7 +45,11 @@ const FreeLabs = ({ freelabs }: FreeLabs) => {
                     <IconButton sx={{ mr: 1 }} onClick={() => { setCollapse(!collapse) }}>
                         {collapse ? <BiChevronRight /> : <BiChevronDown />}
                     </IconButton>
-                    <Typography width="100%" variant="TitleLarge" color="primary">Practice Playgrounds</Typography>
+                    {/* <Typography width="100%" variant="TitleLarge" color="primary"> */}
+                    <p className={style.TitleLarge} style={{color:"#c4c6d0"}}>
+                        Practice Playgrounds
+                        {/* </Typography> */}
+                        </p>
                     <Chip sx={{ backgroundColor: "surfacevariant.main", color: 'primary.main', fontWeight: "bold", ml: 2 }} label={`Total Labs - ${freelabs.length}`} />
                 </div>
                 <div style={{ display: "flex" }}>
@@ -111,7 +117,8 @@ const FreeLabs = ({ freelabs }: FreeLabs) => {
                         </Grid>
                     )
                 })}
-                {labs && labs.length == 0 && <Typography variant="LabelLarge">No Labs found</Typography>}
+                {/* {labs && labs.length == 0 && <Typography variant="LabelLarge">No Labs found</Typography>} */}
+                {labs && labs.length == 0 && <p className={style.LabelLarge}>No Labs found</p>}
             </Grid>}
         </div>
     )
@@ -196,8 +203,14 @@ const SingleLab = (freelabs: LABS) => {
                         <MdDelete />
                     </IconButton>
                 </div>
-                <Typography paragraph sx={{ mt: 1, maxHeight: "20px", overflow: "hidden" }} variant="TitleMedium">{freelabs.question}</Typography>
-                <Typography paragraph sx={{ m: 0, color: 'onsurfacevariant.main', maxHeight: "24px", overflow: "hidden" }} variant="LabelLarge">Last Modified {new Date(freelabs.modifiedAt).toDateString()}</Typography>
+                {/* <Typography paragraph sx={{ mt: 1, maxHeight: "20px", overflow: "hidden" }} variant="TitleMedium"> */}
+                <p className={style.TitleMedium} style={{maxHeight: "20px", overflow: "hidden"}}>
+                    {freelabs.question} </p>
+                    {/* </Typography> */}
+                {/* <Typography paragraph sx={{ m: 0, color: 'onsurfacevariant.main', maxHeight: "24px", overflow: "hidden" }} variant="LabelLarge"> */}
+                <p className={style.LabelLarge} style={{color: '#c4c6d0', maxHeight: "24px", overflow: "hidden"}}>
+                    Last Modified {new Date(freelabs.modifiedAt).toDateString()} </p>
+                    {/* </Typography> */}
             </div>
 
         </StyledCardContainer >

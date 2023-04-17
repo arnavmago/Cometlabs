@@ -2,11 +2,14 @@
 import ShowcaseBig from "@/components/Carousels/ShowcaseBig";
 import Image from "next/image";
 import { Tag } from "@/components/Fest/Dashboard/AllSubmission";
-import { Button, Grid, IconButton, Paper, Box, Stack, Typography } from "@mui/material";
+// import { Button, Grid, IconButton, Paper, Box, Stack, Typography } from "@mui/material";
+import { Button, Grid, IconButton, Paper, Box, Stack} from "@mui/material";
 import { styled } from "@mui/system";
 import { GrUpdate } from "react-icons/gr";
 import { FaIndustry, FaLocationArrow } from "react-icons/fa";
 import { HiOutlineCalendar, HiOutlineLocationMarker } from "react-icons/hi";
+import style from "@/styles/typography-styles.module.css";
+
 
 type TechTag = {
   title: string;
@@ -44,14 +47,16 @@ function JobCard(job: JOB) {
         <Stack direction="row" spacing={2} alignItems={"center"} justifyContent="space-between">
           <Stack>
             <Stack direction="row">
-              <Typography variant="LabelLarge" sx={{ fontWeight: 500 }}>
+              {/* <Typography variant="LabelLarge" sx={{ fontWeight: 500 }}>
                 {job.company}
-              </Typography>
+              </Typography> */}
+              <p className={style.LabelLarge} style={{fontWeight:"500"}}>{job.company}</p>
               <IconButton href={companyUrl} color="primary"><FaLocationArrow style={{ fontSize: "1rem" }} /></IconButton>
             </Stack>
-            <Typography variant="LabelLarge" color="primary">
+            {/* <Typography variant="LabelLarge" color="primary">
               {job.role}
-            </Typography>
+            </Typography> */}
+            <p className={style.LabelLarge} style={{color:"primary"}}>{job.role}</p>
           </Stack>
           <Image
             src={job.imageUrl}
@@ -67,21 +72,24 @@ function JobCard(job: JOB) {
         >
           <Stack direction="row">
             <HiOutlineLocationMarker size="1rem" />
-            <Typography variant="LabelLarge">
+            {/* <Typography variant="LabelLarge">
               {job.remote}
-            </Typography>
+            </Typography> */}
+            <p className={style.LabelLarge} >{job.remote}</p>
           </Stack>
           <Stack direction="row">
             <HiOutlineCalendar style={{ fontSize: "1rem" }} />
-            <Typography variant="LabelLarge">
+            {/* <Typography variant="LabelLarge">
               {job.fulltime}
-            </Typography>
+            </Typography> */}
+            <p className={style.LabelLarge} >{job.fulltime}</p>
           </Stack>
           <Stack direction="row" sx={{ display: "flex" }}>
             <FaIndustry size="1rem" />
-            <Typography variant="LabelLarge">
+            {/* <Typography variant="LabelLarge">
               {job.industry}
-            </Typography>
+            </Typography> */}
+            <p className={style.LabelLarge} >{job.industry}</p>
           </Stack>
         </Stack>
         <Grid container rowGap={1} sx={{ justifyContent: "space-between", height: "90px" }}>
@@ -92,9 +100,10 @@ function JobCard(job: JOB) {
           ))}
         </Grid>
         <Box sx={{ overflow: "hidden", textOverflow: "ellipsis", maxHeight: "215px", }}>
-          <Typography variant={"LabelLarge"} >
+          {/* <Typography variant={"LabelLarge"} >
             {job.description}
-          </Typography>
+          </Typography> */}
+          <p className={style.LabelLarge}>{job.description}</p>
         </Box>
         <Stack
           direction="row"
@@ -103,11 +112,13 @@ function JobCard(job: JOB) {
         >
           <Box sx={{ display: "flex" }} alignItems="center">
             <IconButton color="primary" size="small"><GrUpdate style={{ fontSize: "12px" }} /></IconButton>
-            <Typography variant="LabelLarge">2 days ago</Typography>
+            {/* <Typography variant="LabelLarge">2 days ago</Typography> */}
+            <p className={style.LabelLarge} >2 days ago</p>
           </Box>
-          <Typography variant="LabelLarge" color="primary">
+          {/* <Typography variant="LabelLarge" color="primary">
             Stipend {job.stipend}/month
-          </Typography>
+          </Typography> */}
+          <p className={style.LabelLarge} style={{color:"primary"}}>Stipend{job.stipend}/month</p>
         </Stack>
         <Button
           variant="contained"
@@ -117,7 +128,8 @@ function JobCard(job: JOB) {
           target={"_blank"}
           sx={{ padding: "16px 24px" }}
         >
-          <Typography variant="LabelLarge" sx={{ lineHeight: "16px", fontWeight: 500 }}>Apply now</Typography>
+          {/* <Typography variant="LabelLarge" sx={{ lineHeight: "16px", fontWeight: 500 }}>Apply now</Typography> */}
+          <p className={style.LabelLarge} style={{lineHeight:"16px",fontWeight:"500"}}>Apply now</p>
         </Button>
       </Stack>
     </CardContainer>

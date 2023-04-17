@@ -1,7 +1,9 @@
 import { NEWS, News } from "@/components/MainArea/NewsArea";
 import ShowcaseBiggest from "../Carousels/ShowcaseBiggest";
-import { Typography } from "@mui/material";
+// import { Typography } from "@mui/material";
 import { CardContainer } from "@/styles/theme";
+import style from "@/styles/typography-styles.module.css";
+
 
 
 
@@ -9,8 +11,10 @@ import { CardContainer } from "@/styles/theme";
 const Carousel = (props: News) => {
     return (
         <CardContainer elevation={0} sx={{ margin: "20px 5vw", textAlign: "center" }}>
-            <Typography variant="LabelLarge" fontStyle="italic">{props.details}</Typography>
-            <Typography variant="LabelLarge" textAlign="right">-- {props.name}</Typography>
+            {/* <Typography variant="LabelLarge" fontStyle="italic">{props.details}</Typography> */}
+            <p className={style.LabelLarge} style={{fontStyle:"italic"}}>{props.details}</p>
+            {/* <Typography variant="LabelLarge" textAlign="right">-- {props.name}</Typography> */}
+            <p className={style.LabelLarge} style={{textAlign:"right"}}>-- {props.name}</p>
         </CardContainer>
     );
 }

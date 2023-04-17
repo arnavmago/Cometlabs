@@ -16,10 +16,11 @@ import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Stack from "@mui/material/Stack";
 import { alpha, styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import { MdDarkMode } from "react-icons/md";
 import { WiDaySunny } from "react-icons/wi";
 import { DefaultUser } from "@/backend/functions";
+import style from "@/styles/typography-styles.module.css";
 
 // export let Mode: boolean = true;
 
@@ -69,9 +70,10 @@ export let mode: boolean;
 export const UserGreet = ({ user }: HeaderProps) => {
 
   return (
-    <Typography variant="TitleMedium" sx={{ mr: 1 }}>
-      Hi, {user && user.username?.split(' ').slice(0, 1).join(' ')}!
-    </Typography>
+    // <Typography variant="TitleMedium" sx={{ mr: 1 }}>
+    <p className={style.TitleMedium}>
+      Hi, {user && user.username?.split(' ').slice(0, 1).join(' ')}! </p>
+
   )
 }
 
@@ -156,24 +158,36 @@ export default function HeaderMenu({ user }: HeaderProps) {
       >
         <MenuItem onClick={() => { window.location.href = InternalLinks.DEV_DASHBOARD + user.username || InternalLinks.SIGNIN_PAGE, console.log(InternalLinks.DEV_DASHBOARD + user.username) }} disableRipple>
           <HiOutlineUser style={{ marginRight: "16px" }} />
-          <Typography variant="LabelLarge">Profile</Typography>
+          {/* <Typography variant="LabelLarge"> */}
+          <p className={style.LabelLarge}>
+            Profile </p>
+          {/* </Typography> */}
         </MenuItem>
         <MenuItem onClick={(e) => { handleModeChange(e) }} disableRipple>
           {theme === "0" ? (
             <>
               <WiDaySunny style={{ marginRight: "16px" }} />
-              <Typography variant="LabelLarge">Light Theme</Typography>
+              {/* <Typography variant="LabelLarge"> */}
+              <p className={style.LabelLarge}>
+                Light Theme </p>
+              {/* </Typography> */}
             </>
           ) : (
             <>
               <MdDarkMode style={{ marginRight: "16px" }} />
-              <Typography variant="LabelLarge">Dark Theme</Typography>
+              {/* <Typography variant="LabelLarge"> */}
+              <p className={style.LabelLarge}>
+                Dark Theme </p>
+              {/* </Typography> */}
             </>
           )}
         </MenuItem>
         <MenuItem onClick={handleSignOut} disableRipple>
           <HiOutlineLogout style={{ marginRight: "16px" }} />
-          <Typography variant="LabelLarge">Logout</Typography>
+          {/* <Typography variant="LabelLarge"> */}
+          <p className={style.LabelLarge}>
+            Logout </p>
+          {/* </Typography> */}
         </MenuItem>
       </StyledMenu>
     </Stack>

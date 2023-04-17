@@ -1,4 +1,5 @@
-import { Box, Typography } from "@mui/material";
+// import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 // import LineChart from './LineChart';
 // import PieChart from './PieChart';
 // import StraightLineChart from './StraightLineChart';
@@ -7,6 +8,8 @@ import RadarChart from './RadarChart';
 // import { DummyData } from "@/components/User/Dashboard/types";
 import GitHubCalendar from "react-github-calendar";
 import { StyledCardContainer } from "@/styles/theme";
+import style from "@/styles/typography-styles.module.css";
+
 
 interface Data {
     langs: {},
@@ -29,31 +32,70 @@ const Analytics = ({ langs, gitusername, score }: Data) => {
     if (!langs || !gitusername) {
         return (
             <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "10px 30px" }}>
-                <Typography variant="LabelLarge">Cometlabs analytics will show here.</Typography>
+                {/* <Typography variant="LabelLarge"> */}
+                <p className={style.LabelLarge}>
+                    Cometlabs analytics will show here.
+                    {/* </Typography> */}
+                </p>
             </Box>
         )
     }
 
     return (
         <>
-            <Typography variant="TitleLarge">Analytics</Typography>
+            {/* <Typography variant="TitleLarge"> */}
+            <p className={style.TitleLarge}>
+                Analytics
+                {/* </Typography> */}
+            </p>
             <div style={{ display: "flex", width: "100%", marginTop: "32px", backgroundColor: "transparent", padding: "36px 0", justifyContent: "space-between", overflowY: "auto" }}>
                 <StyledCardContainer sx={{ p: "36px", display: "flex", flexDirection: "column", mb: 1 }}>
-                    <Typography variant="LabelLarge" color="onsurfacevariant.main">Comet Score </Typography>
-                    <Typography variant="HeadlineMedium">{comet}</Typography>
+                    {/* <Typography variant="LabelLarge" color="onsurfacevariant.main"> */}
+                    <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+                        Comet Score
+                        {/* </Typography> */}
+                    </p>
+                    {/* <Typography variant="HeadlineMedium"> */}
+                    <p className={style.HeadlineMedium}>
+                        {comet}
+                        {/* </Typography> */}
+                    </p>
                 </StyledCardContainer>
                 <StyledCardContainer sx={{ p: "36px", display: "flex", flexDirection: "column", mb: 1 }}>
-                    <Typography variant="LabelLarge" color="onsurfacevariant.main">Github Score </Typography>
-                    <Typography variant="HeadlineMedium">{git}</Typography>
+                    {/* <Typography variant="LabelLarge" color="onsurfacevariant.main"> */}
+                    <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+                        Github Score
+                        {/* </Typography> */}
+                    </p>
+                    {/* <Typography variant="HeadlineMedium"> */}
+                    <p className={style.HeadlineMedium}>
+                        {git}
+                        {/* </Typography> */}
+                    </p>
                 </StyledCardContainer>
                 <StyledCardContainer sx={{ p: "36px", display: "flex", flexDirection: "column", mb: 1 }}>
-                    <Typography variant="LabelLarge" color="onsurfacevariant.main">Leetcode Score </Typography>
-                    <Typography variant="HeadlineMedium">{leet}</Typography>
+                    {/* <Typography variant="LabelLarge" color="onsurfacevariant.main"> */}
+                    <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+                        Leetcode Score  </p>
+                    {/* </Typography> */}
+                    {/* <Typography variant="HeadlineMedium"> */}
+                    <p className={style.HeadlineMedium}>
+                        {leet}
+                        {/* </Typography> */}
+                    </p>
                 </StyledCardContainer>
             </div>
-            <Typography paragraph sx={{ mt: 8 }} width="70%" variant="TitleLarge">Tech Stacks</Typography>
+            {/* <Typography paragraph sx={{ mt: 8 }} width="70%" variant="TitleLarge"> */}
+            <p className={style.TitleLarge} style={{ width: "70%" }}>
+                Tech Stacks
+                {/* </Typography> */}
+            </p>
             <RadarChart dataa={langs} />
-            <Typography paragraph sx={{ mt: 10, mb: 4 }} width="70%" variant="TitleLarge">Contributions made by you</Typography>
+            {/* <Typography paragraph sx={{ mt: 10, mb: 4 }} width="70%" variant="TitleLarge"> */}
+            <p className={style.TitleLarge} style={{ width: "70%" }}>
+                Contributions made by you
+                {/* </Typography> */}
+            </p>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", margin: "auto" }}>
                 <GitHubCalendar username={gitusername} blockMargin={5}
                     blockRadius={7}

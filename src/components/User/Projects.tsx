@@ -1,5 +1,6 @@
 import { CardContainer, FilledButton, StyledCardContainer } from "@/styles/theme";
-import { Box, Grid, Typography, Chip, Tooltip, TextField, MenuItem, IconButton } from "@mui/material";
+// import { Box, Grid, Typography, Chip, Tooltip, TextField, MenuItem, IconButton } from "@mui/material";
+import { Box, Grid, Chip, Tooltip, TextField, MenuItem, IconButton } from "@mui/material";
 import { ALLSUBMISSIONS, LABS } from "pages/Dashboards/Dev/[id]";
 import Image from "next/image";
 // import { FestecTracks } from "../MainArea/PlaygroundArea";
@@ -10,6 +11,7 @@ import { useState } from "react";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 import router from "next/router";
 import { MdDelete } from "react-icons/md";
+import style from "@/styles/typography-styles.module.css";
 
 interface Submission {
     submission: ALLSUBMISSIONS[];
@@ -61,7 +63,10 @@ const Projects = ({ submission, freelabs, repositories, user }: Submission) => {
                             <IconButton sx={{ mr: 1 }} onClick={() => { setSubmissionCollapse(!submicollapse) }}>
                                 {submicollapse ? <BiChevronRight /> : <BiChevronDown />}
                             </IconButton>
-                            <Typography variant="TitleLarge" color="primary">All Projects</Typography>
+                            {/* <Typography variant="TitleLarge" color="primary"> */}
+                            <p className={style.TitleLarge} style={{ color: "#c4c6d0" }}>
+                                All Projects</p>
+                            {/* </Typography> */}
                             <Chip sx={{ backgroundColor: "surfacevariant.main", color: 'primary.main', fontWeight: "bold", ml: 2 }} label={`Total Labs - ${submission.length}`} />
                         </div>
                         <TextField style={{ paddingBottom: "0px", width: "150px", maxWidth: "200px" }}
@@ -114,7 +119,10 @@ const Projects = ({ submission, freelabs, repositories, user }: Submission) => {
                                         </Grid>
                                         <Grid item xs={12} sx={{ px: 1.5 }}>
                                             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
-                                                <Typography variant="HeadlineMedium">{submi.framework}</Typography>
+                                                {/* <Typography variant="HeadlineMedium"> */}
+                                                <p className={style.HeadlineMedium}>
+                                                    {submi.framework} </p>
+                                                {/* </Typography> */}
                                                 <IconButton
                                                     color="error"
                                                     sx={{ p: 0, my: "auto" }}
@@ -150,7 +158,10 @@ const Projects = ({ submission, freelabs, repositories, user }: Submission) => {
                                                 </IconButton>
                                             </div>
                                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                                <Typography paragraph variant="LabelLarge" sx={{ color: "onsurfacevariant.main", mb: 0 }}>{new Date(submi.Submission_Time).toLocaleDateString()}</Typography>
+                                                {/* <Typography paragraph variant="LabelLarge" sx={{ color: "onsurfacevariant.main", mb: 0 }}> */}
+                                                <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+                                                    {new Date(submi.Submission_Time).toLocaleDateString()} </p>
+                                                {/* </Typography> */}
                                                 <Chip sx={{ backgroundColor: "surfacevariant.main", color: 'primary.main', fontWeight: "bold", ml: 2 }} label={submi.type == "f" ? "Project" : "Product"} />
                                             </div>
                                         </Grid>
@@ -171,7 +182,10 @@ const Projects = ({ submission, freelabs, repositories, user }: Submission) => {
                             <IconButton sx={{ mr: 1 }} onClick={() => { setGithubCollapse(!githubcollapse) }}>
                                 {githubcollapse ? <BiChevronRight /> : <BiChevronDown />}
                             </IconButton>
-                            <Typography variant="TitleLarge" color="primary">Github Projects</Typography>
+                            {/* <Typography variant="TitleLarge" color="primary"> */}
+                            <p className={style.TitleLarge} style={{ color: "#c4c6d0" }}>
+                                Github Projects </p>
+                            {/* </Typography> */}
                             <Chip sx={{ backgroundColor: "surfacevariant.main", color: 'primary.main', fontWeight: "bold", ml: 2 }} label={`Github Labs - ${repositories && repositories.length}`} />
                         </div>
                         <div>
@@ -236,7 +250,10 @@ const Projects = ({ submission, freelabs, repositories, user }: Submission) => {
                         return (
                             <div style={{ marginTop: "32px" }} key={owner.login}>
                                 <div style={{ display: "flex", alignItems: "center" }}>
-                                    <Typography variant="TitleLarge">{owner.login}</Typography>
+                                    {/* <Typography variant="TitleLarge"> */}
+                                    <p className={style.TitleLarge}>
+                                        {owner.login} </p>
+                                    {/* </Typography> */}
                                     <Chip sx={{ backgroundColor: "surfacevariant.main", color: 'primary.main', fontWeight: "bold", ml: 2 }} label={`Github Labs - ${newRepos.length}`} />
                                 </div>
                                 <Grid container spacing={2} sx={{ mt: 3, mx: "auto" }}>
@@ -246,9 +263,15 @@ const Projects = ({ submission, freelabs, repositories, user }: Submission) => {
                                             <Grid item key={repo.full_name}>
                                                 <Tooltip title={repo.name} placement="top">
                                                     <StyledCardContainer sx={{ cursor: 'pointer', width: "200px", transition: "transform 0.3s", ':hover': { transform: "scale(1.05)" }, p: 2 }} onClick={() => { window.open(`https://cometlabs.in/lab/vite-vanilla/${user!.username}/g/${gitrepourl}?git_url=${gitrepourl}&provider=github`) }}>
-                                                        <Typography variant="TitleSmall" sx={{ height: "40px", display: "flex", maxWidth: "160px", overflow: "hidden" }}>{repo.name}</Typography>
+                                                        {/* <Typography variant="TitleSmall" sx={{ height: "40px", display: "flex", maxWidth: "160px", overflow: "hidden" }}> */}
+                                                        <p className={style.TitleSmall} style={{ height: "40px", display: "flex", maxWidth: "160px", overflow: "hidden" }}>
+                                                            {repo.name}</p>
+                                                        {/* </Typography> */}
                                                         <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center" }}>
-                                                            <Typography variant="BodySmall" paragraph style={{ margin: '0px' }}>{Math.round((new Date().getTime() - new Date(repo.updated_at).getTime()) / (1000 * 60 * 60 * 24))}d ago</Typography>
+                                                            {/* <Typography variant="BodySmall" paragraph style={{ margin: '0px' }}> */}
+                                                            <p className={style.BodySmall}>
+                                                                {Math.round((new Date().getTime() - new Date(repo.updated_at).getTime()) / (1000 * 60 * 60 * 24))}d ago </p>
+                                                            {/* </Typography> */}
                                                             <Chip sx={{ backgroundColor: "surfacevariant.main" }} label={repo.private ? 'private' : 'public'} />
                                                         </div>
                                                     </StyledCardContainer>
@@ -262,12 +285,21 @@ const Projects = ({ submission, freelabs, repositories, user }: Submission) => {
                     })}
                 </CardContainer> :
                 <FilledButton sx={{ mb: 1, borderRadius: 0 }} onClick={() => { window.open(`https://github.com/login/oauth/authorize?client_id=e07b9a9e6d2763621b8e&scope=repo,user:email&state=${user!.accessToken}`) }}>
-                    <Typography variant="LabelLarge">Authorise your Github</Typography>
+                    {/* <Typography variant="LabelLarge"> */}
+                    <p className={style.LabelLarge}>
+                        Authorise your Github</p>
+                    {/* </Typography> */}
                 </FilledButton>}
             {freelabs.length == 0 && submission.length == 0 &&
                 <div>
-                    <Typography variant="HeadlineSmall" color="primary" paragraph>No submissions</Typography>
-                    <Typography variant="LabelLarge">Created Labs and your submissions will be shown here</Typography>
+                    {/* <Typography variant="HeadlineSmall" color="primary" paragraph> */}
+                    <p className={style.HeadlineSmall} style={{ color: "#c4c6d0" }}>
+                        No submissions </p>
+                    {/* </Typography> */}
+                    {/* <Typography variant="LabelLarge"> */}
+                    <p className={style.LabelLarge}>
+                        Created Labs and your submissions will be shown here </p>
+                    {/* </Typography> */}
                 </div>}
         </div>
     )

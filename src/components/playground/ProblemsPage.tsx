@@ -1,12 +1,14 @@
 import * as React from "react";
 import { Tag } from "@/components/Fest/Dashboard/AllSubmission";
-import { Box, Grid, Typography } from "@mui/material";
+// import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { InternalLinks } from "@/content/Links";
 // import { useSession } from "next-auth/react";
 import { DefaultUser } from "@/backend/functions";
 import { CardContainer, FilledButton } from "@/styles/theme";
 // import { async } from "@firebase/util";
 import { useRouter } from "next/router";
+import style from "@/styles/typography-styles.module.css";
 
 
 export type Problem = {
@@ -72,9 +74,11 @@ export default function Problems(problem: Problem) {
             <CardContainer sx={{ padding: "10px 20px", mt: "20px" }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <Typography variant="LabelLarge" sx={{ mt: 1, mb: 1, mr: 1, fontWeight: 600 }}>
+                        {/* <Typography variant="LabelLarge" sx={{ mt: 1, mb: 1, mr: 1, fontWeight: 600 }}> */}
+                        <p className={style.LabelLarge}>
                             {problem.name}
-                        </Typography>
+                            {/* </Typography> */}
+                        </p>
                         <Grid container spacing={1} sx={{ width: "auto" }}>
                             {problem.Tags.map((tag, index) => (
                                 <Grid item xs="auto" key={index}>
@@ -91,7 +95,16 @@ export default function Problems(problem: Problem) {
                         >Solve Now</FilledButton>
                     }
                 </Box>
-                <Typography sx={{
+                {/* <Typography sx={{
+                    padding: "0 10px",
+                    maxWidth: '100%',
+                    display: '-webkit-box',
+                    WebkitBoxOrient: 'vertical',
+                    WebkitLineClamp: 4,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                }}> */}
+                <p style={{
                     padding: "0 10px",
                     maxWidth: '100%',
                     display: '-webkit-box',
@@ -101,7 +114,8 @@ export default function Problems(problem: Problem) {
                     textOverflow: 'ellipsis'
                 }}>
                     {problem.singleLiner}
-                </Typography>
+                    {/* </Typography> */}
+                </p>
             </CardContainer>
             {/* ))} */}
         </>

@@ -17,6 +17,9 @@ import {
 import { SiFacebook, SiGithub, SiInstagram, SiLinkedin, SiTwitter, SiLeetcode, SiGmail } from "react-icons/si";
 import { RiPencilFill } from "react-icons/ri";
 
+import tstyle from "@/styles/typography-styles.module.css";
+
+
 import {
   Autocomplete,
   Box,
@@ -138,12 +141,13 @@ export const Education = ({ readOnly }: ReadOnly) => {
 
   return (
     <Box>
-      <Typography
+      {/* <Typography
         variant="TitleLarge"
         paragraph
-      >
-        Education
-      </Typography>
+      > */}
+      <p className={tstyle.TitleLarge}>
+        Education </p>
+      {/* </Typography> */}
       <Box>
         {education.map((edu, i) => {
 
@@ -172,9 +176,10 @@ export const Education = ({ readOnly }: ReadOnly) => {
                 <Stack direction="row"
                   justifyContent="space-between"
                   spacing={2}>
-                  <Typography variant="TitleLarge">
-                    {edu.institution}
-                  </Typography>
+                  {/* <Typography variant="TitleLarge"> */}
+                  <p className={tstyle.TitleLarge}>
+                    {edu.institution} </p>
+                  {/* </Typography> */}
                   {!readOnly && <>
                     <IconButton
                       sx={{ ml: 1, color: "onsurfacevariant.main" }}
@@ -198,11 +203,17 @@ export const Education = ({ readOnly }: ReadOnly) => {
                     >
                       <MenuItem onClick={() => { setEduId(edu.id), handleClose() }} disableRipple>
                         <HiOutlinePencil style={{ marginRight: "16px" }} />
-                        <Typography variant="LabelLarge">Edit</Typography>
+                        {/* <Typography variant="LabelLarge"> */}
+                        <p className={style.LabelLarge}>
+                          Edit </p>
+                          {/* </Typography> */}
                       </MenuItem>
                       <MenuItem onClick={() => { console.log(edu), deleteEdu(edu.id), handleClose() }} disableRipple>
                         <HiOutlineTrash style={{ marginRight: "16px" }} />
-                        <Typography variant="LabelLarge">Delete</Typography>
+                        {/* <Typography variant="LabelLarge"> */}
+                        <p className={tstyle.LabelLarge}>
+                          Delete </p>
+                          {/* </Typography> */}
                       </MenuItem>
                     </StyledMenu>
                   </>}
@@ -278,9 +289,13 @@ export const Education = ({ readOnly }: ReadOnly) => {
                 {readOnly || Boolean(eduId != edu.id) ? (
                   <>
                     <div>
-                      <Typography variant="LabelLarge" color="onsurfacevariant.main">{edu.course}</Typography>
+                      {/* <Typography variant="LabelLarge" color="onsurfacevariant.main"> */}
+                      <p className={tstyle.LabelLarge}>
+                        {edu.course} </p>
+                        {/* </Typography> */}
                     </div>
-                    <Typography variant="BodyMedium" color="textSecondary">
+                    {/* <Typography variant="BodyMedium" color="textSecondary"> */}
+                    <p className={tstyle.BodyMedium} >
                       {new Date(edu.startDate).toLocaleDateString(
                         "en-US",
                         dateOptions
@@ -290,7 +305,8 @@ export const Education = ({ readOnly }: ReadOnly) => {
                           "en-US",
                           dateOptions
                         )}
-                    </Typography>
+                   </p>
+                    {/* </Typography> */}
                   </>
                 ) : (
                   <>
@@ -351,11 +367,13 @@ export const Education = ({ readOnly }: ReadOnly) => {
                             renderHTML={(text: string) => {
                               field.onChange(text);
                               return (
-                                <Typography variant="BodyLarge" className="content">
+                                // <Typography variant="BodyLarge" className="content">
+                                <p className={tstyle.BodyLarge}>
                                   <ReactMarkdown className={style.reactMarkDown}>
                                     {text}
                                   </ReactMarkdown>
-                                </Typography>
+                                </p>
+                               
                               );
                             }}
                           />
@@ -453,11 +471,12 @@ export const Projects = ({ readOnly }: ReadOnly) => {
 
   return (
     <Box>
-      <Typography paragraph
+      {/* <Typography paragraph
         variant="TitleLarge"
-      >
-        Projects
-      </Typography>
+      > */}
+      <p className={tstyle.TitleLarge}>
+        Projects </p>
+      {/* </Typography> */}
       <div>
         {projects.map((pro, i) => {
           const open = Boolean(anchorEl[i]);
@@ -486,7 +505,10 @@ export const Projects = ({ readOnly }: ReadOnly) => {
                     justifyContent="space-between"
                   >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                      <Typography variant="TitleLarge" paragraph>{pro.name}</Typography>
+                      {/* <Typography variant="TitleLarge" paragraph> */}
+                      <p className={tstyle.TitleLarge}>
+                        {pro.name} </p>
+                      {/* </Typography> */}
                       {/* </div>
                 <div style={{ display: "flex", alignItems: "center" }}> */}
                       {!readOnly && proId != pro.id && (
@@ -512,14 +534,20 @@ export const Projects = ({ readOnly }: ReadOnly) => {
                           >
                             <MenuItem onClick={() => { setProId(pro.id), handleClose() }} disableRipple>
                               <HiOutlinePencil style={{ marginRight: "16px" }} />
-                              <Typography variant="LabelLarge">Edit</Typography>
+                              {/* <Typography variant="LabelLarge"> */}
+                              <p className={tstyle.LabelLarge}>
+                                Edit </p>
+                                {/* </Typography> */}
                             </MenuItem>
                             <MenuItem onClick={() => {
                               // console.log(pro.name)
                               deletePro(pro.id), handleClose()
                             }} disableRipple>
                               <HiOutlineTrash style={{ marginRight: "16px" }} />
-                              <Typography variant="LabelLarge">Delete</Typography>
+                              {/* <Typography variant="LabelLarge"> */}
+                              <p className={style.LabelLarge}>
+                                Delete </p>
+                                {/* </Typography> */}
                             </MenuItem>
                           </StyledMenu>
                         </>
@@ -531,14 +559,20 @@ export const Projects = ({ readOnly }: ReadOnly) => {
                         href={pro.project_url}
                         startIcon={<HiOutlineLink />}
                       >
-                        <Typography variant="LabelLarge">Live Project</Typography>
+                        {/* <Typography variant="LabelLarge"> */}
+                        <p className={tstyle.LabelLarge}>
+                          Live Project </p>
+                          {/* </Typography> */}
                       </TextButton>
                       <TextButton
                         color="primary"
                         href={pro.github_repo}
                         startIcon={<SiGithub />}
                       >
-                        <Typography variant="LabelLarge">Source Code</Typography>
+                        {/* <Typography variant="LabelLarge"> */}
+                        <p className={tstyle.LabelLarge}>
+                          Source Code</p>
+                        {/* </Typography> */}
                       </TextButton>
                     </Box>
                   </Stack>
@@ -616,11 +650,13 @@ export const Projects = ({ readOnly }: ReadOnly) => {
                             renderHTML={(text: string) => {
                               field.onChange(text);
                               return (
-                                <Typography variant="BodyLarge" className="content">
+                                // <Typography variant="BodyLarge" className="content">
+                                <p className={tstyle.BodyLarge}>
                                   <ReactMarkdown className={style.reactMarkDown}>
                                     {text}
                                   </ReactMarkdown>
-                                </Typography>
+                                  </p>                                
+                               
                               );
                             }}
                           />
@@ -746,11 +782,12 @@ export const Experience = ({ readOnly }: ReadOnly) => {
 
   return (
     <Box>
-      <Typography paragraph
+      {/* <Typography paragraph
         variant="TitleLarge"
-      >
-        Experience
-      </Typography>
+      > */}
+      <p className={tstyle.TitleLarge}>
+        Experience </p>
+      {/* </Typography> */}
       <div>
         {experience.map((exp, i) => {
           const open = Boolean(anchorEl[i]);
@@ -782,10 +819,15 @@ export const Experience = ({ readOnly }: ReadOnly) => {
                 {readOnly || Boolean(expId != exp.id) ? (
                   <>
                     <div style={{ display: "flex", alignItems: "center" }}>
-                      <Typography variant="TitleLarge" sx={{ mr: 1 }}>{exp.position + ","}</Typography>
-                      <Typography variant="BodyLarge" color="onsurfacevariant.main">
-                        {exp.name}
-                      </Typography>
+                      {/* <Typography variant="TitleLarge" sx={{ mr: 1 }}> */}
+                      <p className={tstyle.TitleLarge}>
+                        {exp.position + ","}
+                        </p>
+                        {/* </Typography> */}
+                      {/* <Typography variant="BodyLarge" color="onsurfacevariant.main"> */}
+                      <p className={tstyle.BodyLarge}>
+                        {exp.name} </p>
+                      {/* </Typography> */}
                     </div>
                     {!readOnly && expId != exp.id && (
                       <div>
@@ -810,11 +852,17 @@ export const Experience = ({ readOnly }: ReadOnly) => {
                         >
                           <MenuItem onClick={() => { setExpId(exp.id), handleClose() }} disableRipple>
                             <HiOutlinePencil style={{ marginRight: "16px" }} />
-                            <Typography variant="LabelLarge">Edit</Typography>
+                            {/* <Typography variant="LabelLarge"> */}
+                            <p className={tstyle.LabelLarge}>
+                              Edit </p>
+                              {/* </Typography> */}
                           </MenuItem>
                           <MenuItem onClick={() => { deleteExp(exp.id), handleClose() }} disableRipple>
                             <HiOutlineTrash style={{ marginRight: "16px" }} />
-                            <Typography variant="LabelLarge">Delete</Typography>
+                            {/* <Typography variant="LabelLarge"> */}
+                            <p className={tstyle.LabelLarge}>
+                              Delete </p>
+                              {/* </Typography> */}
                           </MenuItem>
                         </StyledMenu>
                       </div>
@@ -862,7 +910,8 @@ export const Experience = ({ readOnly }: ReadOnly) => {
               <div>
                 {readOnly || Boolean(expId != exp.id) ? (
                   <>
-                    <Typography variant="LabelLarge" color="onsurfacevariant.main">
+                    {/* <Typography variant="LabelLarge" color="onsurfacevariant.main"> */}
+                    <p className={tstyle.LabelLarge}>
                       {new Date(exp.startDate).toLocaleDateString(
                         "en-US",
                         dateOptions
@@ -872,7 +921,8 @@ export const Experience = ({ readOnly }: ReadOnly) => {
                           "en-US",
                           dateOptions
                         )}
-                    </Typography>
+                        </p>
+                    {/* </Typography> */}
                   </>
                 ) : (
                   <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
@@ -959,11 +1009,13 @@ export const Experience = ({ readOnly }: ReadOnly) => {
                             renderHTML={(text: string) => {
                               field.onChange(text);
                               return (
-                                <Typography variant="BodyLarge" className="content">
+                                // <Typography variant="BodyLarge" className="content">
+                                <p className={tstyle.BodyLarge}>
                                   <ReactMarkdown className={style.reactMarkDown}>
                                     {text}
                                   </ReactMarkdown>
-                                </Typography>
+                                  </p>
+                                // </Typography>
                               );
                             }}
                           />
@@ -1080,11 +1132,12 @@ export const Skills = ({ readOnly }: ReadOnly) => {
 
   return (
     <Box>
-      <Typography paragraph
+      {/* <Typography paragraph
         variant="TitleLarge"
-      >
-        Skills
-      </Typography>
+      > */}
+      <p className={tstyle.TitleLarge}>
+        Skills </p>
+      {/* </Typography> */}
       {SkillSection}
     </Box>
   )
@@ -1725,12 +1778,14 @@ export default function ResumeDetails({ readOnly, score, langs }: resumeProps) {
     <div>
       {readOnly ? (
         <Grid item xs={12} sx={{ mt: 0.5 }}>
-          <Typography variant="TitleLarge" component="p">
-            {info.name}
-          </Typography>
-          <Typography variant="BodyLarge" color="onsurfacevariant.main">
-            {username}
-          </Typography>
+          {/* <Typography variant="TitleLarge" component="p"> */}
+          <p className={tstyle.TitleLarge}>
+            {info.name} </p>
+          {/* </Typography> */}
+          {/* <Typography variant="BodyLarge" color="onsurfacevariant.main"> */}
+          <p className={tstyle.BodyLarge}>
+            {username} </p>
+          {/* </Typography> */}
         </Grid>
       ) : (
         <Stack spacing={2}>

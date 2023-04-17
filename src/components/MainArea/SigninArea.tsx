@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, Box, TextField, IconButton, InputAdornment, Divider, Container } from '@mui/material';
+import { Grid, Stack, Box, TextField, IconButton, InputAdornment, Divider, Container } from '@mui/material';
 import { OutlinedButton, FilledButton, TextButton, CardContainer } from "@/styles/theme";
 import React from 'react'
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
@@ -170,17 +170,26 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                     <Grid item md={6}>
                         {!forgot ? (
                             <>
-                                <Typography variant="TitleLarge" paragraph sx={{ mb: 0 }}>
+                                {/* <Typography variant="TitleLarge" paragraph sx={{ mb: 0 }}>
                                     Sign In
-                                </Typography>
-                                <Typography variant="BodyLarge">
+                                </Typography> */}
+                                <p className={style.TitleLarge} style={{ marginBottom: '0px' }}>
+                                    Sign In
+                                </p>
+                                {/* <Typography variant="BodyLarge">
                                     {"Don't have   account? "}
                                     {/* <Link href={InternalLinks.SIGNUP_PAGE} variant="BodyLarge">/ */}
-                                    <a href={InternalLinks.SIGNUP_PAGE} style={{ color:"#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}>
+                                {/* <a href={InternalLinks.SIGNUP_PAGE} style={{ color: "#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}>
+                                        Sign Up
+                                    </a> */}
+                                {/* </Link> */}
+                                {/* </Typography> */}
+                                <p className={style.BodyLarge}>
+                                    {"Don't have an account? "}
+                                    <a href={InternalLinks.SIGNUP_PAGE} style={{ color: "#aac6fe", textDecoration: "none", borderBottom: '1px solid rgba(170, 198, 254, 0.2)' }} onMouseOver={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 1.0)'; }} onMouseOut={(event) => { event.currentTarget.style.borderBottom = '1px solid rgba(170, 198, 254, 0.2)'; }}>
                                         Sign Up
                                     </a>
-                                    {/* </Link> */}
-                                </Typography>
+                                </p>
                                 <Box component="form" sx={{ mt: 3 }} onSubmit={handleSubmit(onSubmit)} noValidate>
                                     <Controller
                                         name="email"
@@ -195,7 +204,7 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                         }}
                                         render={({ field, fieldState: { error } }) => (
                                             <>
-                                            {/* <TextField
+                                                {/* <TextField
                                                 margin="normal"
                                                 required
                                                 fullWidth
@@ -222,10 +231,10 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                                 {...field}
                                                 ref={null}
                                             /> */}
-                                            <div className={ `${style.form__group} ${style.field}` }>
-                                                <input type="email" className={style.form__field} placeholder="Email Address" name="email" id='email' autoFocus required ref={null}/>
-                                                <label htmlFor="email" className={style.form__label}>Email Address</label>
-                                            </div>
+                                                <div className={`${style.form__group} ${style.field}`}>
+                                                    <input type="email" className={style.form__field} placeholder="Email Address" name="email" id='email' autoFocus required ref={null} />
+                                                    <label htmlFor="email" className={style.form__label}>Email Address</label>
+                                                </div>
                                             </>
                                         )}
                                     />
@@ -242,7 +251,7 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                         }}
                                         render={({ field, fieldState: { error } }) => (
                                             <>
-                                            {/* <TextField
+                                                {/* <TextField
                                                 margin="normal"
                                                 required
                                                 fullWidth
@@ -282,21 +291,24 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                                 {...field}
                                                 ref={null}
                                             /> */}
-                                            <div className={ `${style.form__group} ${style.field}` }>
-                                                <input type={values.showPassword ? "text" : "password"} className={style.form__field} placeholder="Password" 
-                                                name="password" id='password' required ref={null}/>
-                                                <IconButton onClick={handleClickShowPassword} style={{ position: 'absolute', right: '0px'}}>
-                                                    {values.showPassword ? <MdOutlineVisibilityOff /> : <MdOutlineVisibility />}
-                                                </IconButton>
-                                                <label htmlFor="password" className={style.form__label}>Password</label>
-                                            </div>
+                                                <div className={`${style.form__group} ${style.field}`}>
+                                                    <input type={values.showPassword ? "text" : "password"} className={style.form__field} placeholder="Password"
+                                                        name="password" id='password' required ref={null} />
+                                                    <IconButton onClick={handleClickShowPassword} style={{ position: 'absolute', right: '0px' }}>
+                                                        {values.showPassword ? <MdOutlineVisibilityOff /> : <MdOutlineVisibility />}
+                                                    </IconButton>
+                                                    <label htmlFor="password" className={style.form__label}>Password</label>
+                                                </div>
                                             </>
                                         )}
                                     />
                                     <div style={{ margin: "34px auto" }}>
-                                        <Typography color="primary" variant="LabelSmall" sx={{ cursor: 'pointer', textDecoration: 'underline' }} onClick={() => { setForgot(true) }}>
+                                        {/* <Typography color="primary" variant="LabelSmall" sx={{ cursor: 'pointer', textDecoration: 'underline' }} onClick={() => { setForgot(true) }}>
                                             Forgot password?
-                                        </Typography>
+                                        </Typography> */}
+                                        <p className={style.LabelSmall} style={{ color: '#ABC7FF', cursor: 'pointer', textDecoration: 'underline' }} onClick={() => { setForgot(true) }} >
+                                            Forgot password?
+                                        </p>
                                     </div>
                                     <Stack direction="row" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                                         <FilledButton
@@ -304,13 +316,17 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                             variant="contained"
                                             disabled={isSubmitting}
                                         >
-                                            <Typography variant="LabelMedium">
+                                            {/* <Typography variant="LabelMedium">
                                                 {isSubmitting ? "Signing you in..." : "Sign In"}
-                                            </Typography>
+                                            </Typography> */}
+                                            <p className={style.LabelMedium}>
+                                                {isSubmitting ? "Signing you in..." : "Sign In"}
+                                            </p>
                                         </FilledButton>
                                     </Stack>
                                     <Divider sx={{ mt: "34px", mb: "28px" }} color="onsurfacevariant.main">
-                                        <Typography variant="LabelLarge">Or Sign up with</Typography>
+                                        {/* <Typography variant="LabelLarge">Or Sign up with</Typography> */}
+                                        <p className={style.LabelLarge}>Or Sign up with</p>
                                     </Divider>
                                     <Providers providers={providers} />
                                 </Box>
@@ -318,16 +334,19 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                         ) : (
                             <>
                                 <div>
-                                    <Typography variant="TitleLarge">
-                                        Reset Password
-                                    </Typography>
+                                    {/* <Typography variant="TitleLarge"> */}
+                                    {/* Reset Password */}
+                                    {/* </Typography> */}
+                                    <p className={style.TitleLarge}>Reset Password</p>
                                     <div style={{ marginBottom: "24px" }}>
-                                        <Typography variant="BodyLarge">
+                                        {/* <Typography variant="BodyLarge">
                                             Or
-                                        </Typography>
-                                        <Typography sx={{ ml: 1, cursor: 'pointer', textDecoration: "underline" }} color="primary" onClick={(e) => { setForgot(false), e.preventDefault(); }} variant="BodyLarge">
+                                        </Typography> */}
+                                        <p className={style.BodyLarge}>Or</p>
+                                        {/* <Typography sx={{ ml: 1, cursor: 'pointer', textDecoration: "underline" }} color="primary" onClick={(e) => { setForgot(false), e.preventDefault(); }} variant="BodyLarge">
                                             Sign In
-                                        </Typography>
+                                        </Typography> */}
+                                        <p className={style.BodyLarge} style={{ marginLeft: '1px', cursor: 'pointer', textDecoration: 'underline', color: '#ABC7FF' }} onClick={(e) => { setForgot(false), e.preventDefault(); }} >Reset Password</p>
                                     </div>
                                 </div>
                                 <Box>
@@ -375,7 +394,8 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                                     sx={{ borderRadius: "4px" }}
                                                     onClick={() => { onForgotSubmit(forgetEmail!) }}
                                                 >
-                                                    <Typography variant="LabelMedium">GenerateOTP</Typography>
+                                                    {/* <Typography variant="LabelMedium">GenerateOTP</Typography> */}
+                                                    <p className={style.LabelMedium}>GenerateOTP</p>
                                                 </OutlinedButton>
                                             ),
                                         }}
@@ -419,7 +439,8 @@ const SigninArea = ({ providers, setPassword, setauthToken }: SignIn) => {
                                                     disabled={!emailstatus}
                                                     onClick={handleOtp}
                                                 >
-                                                    <Typography variant="LabelMedium">Submit</Typography>
+                                                    {/* <Typography variant="LabelMedium">Submit</Typography> */}
+                                                    <p className={style.LabelMedium}>Submit</p>
                                                 </TextButton>
                                             ),
                                         }}

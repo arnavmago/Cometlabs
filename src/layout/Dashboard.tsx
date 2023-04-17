@@ -6,18 +6,20 @@ import { useSession } from "next-auth/react";
 import { Icon } from '@mui/material'
 import Logo from "@/components/Logo";
 import Header from "@/layout/Header";
-import {
-  Box,
-  Drawer,
-  Stack,
-  Tab,
-  Tabs,
-  Typography, IconButton
-} from "@mui/material";
+// import {
+//   Box,
+//   Drawer,
+//   Stack,
+//   Tab,
+//   Tabs,
+//   Typography, IconButton
+// } from "@mui/material";
+import { Box, Drawer, Stack, Tab, Tabs, IconButton } from "@mui/material";
 import { styled } from "@mui/system";
 import { DefaultUser } from "@/backend/functions";
 import Link from "@/components/Link";
 import { TextButton } from "@/styles/theme";
+import style from "@/styles/typography-styles.module.css";
 
 const drawerWidth = 240;
 
@@ -105,16 +107,18 @@ export default function Dashboard(props: DashboardProps) {
           <Link href={InternalLinks.LANDING_PAGE} noLinkStyle>
             <Logo />
           </Link>
-          <Typography variant="TitleLarge" sx={{ mt: 4 }}>
-            {title}
-          </Typography>
-          <Typography
+          {/* <Typography variant="TitleLarge" sx={{ mt: 4 }}> */}
+          <p className={style.TitleLarge}>
+            {title} </p>
+          {/* </Typography> */}
+          {/* <Typography
             variant="LabelLarge"
             color="onsurfacevariant.main"
             sx={{ mt: 1 }}
-          >
-            {subtitle}
-          </Typography>
+          > */}
+          <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+            {subtitle} </p>
+          {/* </Typography> */}
         </Stack>
         <Tabs
           orientation="vertical"
@@ -144,7 +148,9 @@ export default function Dashboard(props: DashboardProps) {
           }}
         >
           {tabs.map((tab, i) => (
-            <StyledTab wrapped icon={<Icon fontSize="small">{tab.icon}</Icon>} iconPosition="start" label={<Typography variant="TitleMedium">{tab.label}</Typography>} disabled={tab.disabled} {...a11yProps(i)} key={i} />
+            // <StyledTab wrapped icon={<Icon fontSize="small">{tab.icon}</Icon>} iconPosition="start" label={<Typography variant="TitleMedium">{tab.label}</Typography>} disabled={tab.disabled} {...a11yProps(i)} key={i} />
+            <StyledTab wrapped icon={<Icon fontSize="small">{tab.icon}</Icon>} iconPosition="start" label={<p className={style.TitleMedium}>{tab.label}</p>} disabled={tab.disabled} {...a11yProps(i)} key={i} />
+
           ))}
         </Tabs>
       </Box>
@@ -152,7 +158,10 @@ export default function Dashboard(props: DashboardProps) {
         startIcon={<HiOutlineArrowLeft />}
         onClick={() => router.back()}
       >
-        <Typography variant="LabelLarge">Back</Typography>
+        {/* <Typography variant="LabelLarge"> */}
+        <p className={style.LabelLarge}>
+          Back </p>
+        {/* </Typography> */}
       </TextButton>
     </>
   );
@@ -173,22 +182,25 @@ export default function Dashboard(props: DashboardProps) {
             <Link href={InternalLinks.LANDING_PAGE} noLinkStyle>
               <Logo />
             </Link>
-            <Typography variant="TitleLarge" sx={{ mt: 4 }}>
-              {title}
-            </Typography>
-            <Typography
+            {/* <Typography variant="TitleLarge" sx={{ mt: 4 }}> */}
+            <p className={style.TitleLarge}>
+              {title} </p>
+            {/* </Typography> */}
+            {/* <Typography
               variant="LabelLarge"
               color="onsurfacevariant.main"
               sx={{ mt: 1 }}
-            >
-              {subtitle}
-            </Typography>
+            > */}
+            <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+              {subtitle} </p>
+            {/* </Typography> */}
           </Stack>
-          <Typography
+          {/* <Typography
             variant="LabelLarge"
-            color="onsurfacevariant.main" sx={{ pl: 3, mb: 1 }}>
-            Tabs
-          </Typography>
+            color="onsurfacevariant.main" sx={{ pl: 3, mb: 1 }}> */}
+          <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+            Tabs </p>
+          {/* </Typography> */}
           <Tabs
             orientation="vertical"
             variant="scrollable"
@@ -217,14 +229,16 @@ export default function Dashboard(props: DashboardProps) {
             }}
           >
             {tabs.map((tab, i) => (
-              <StyledTab wrapped icon={<Icon fontSize="small">{tab.icon}</Icon>} iconPosition="start" label={<Typography variant="TitleMedium">{tab.label}</Typography>} disabled={tab.disabled} key={i} />
+              // <StyledTab wrapped icon={<Icon fontSize="small">{tab.icon}</Icon>} iconPosition="start" label={<Typography variant="TitleMedium">{tab.label}</Typography>} disabled={tab.disabled} key={i} />
+              <StyledTab wrapped icon={<Icon fontSize="small">{tab.icon}</Icon>} iconPosition="start" label={<p className={style.TitleMedium}>{tab.label}</p>} disabled={tab.disabled} key={i} />
             ))}
           </Tabs>
-          <Typography
+          {/* <Typography
             variant="LabelLarge"
-            color="onsurfacevariant.main" sx={{ pl: 3, mb: 1 }}>
-            Pages
-          </Typography>
+            color="onsurfacevariant.main" sx={{ pl: 3, mb: 1 }}> */}
+          <p className={style.LabelLarge} style={{ color: "#c4c6d0" }}>
+            Pages </p>
+          {/* </Typography> */}
           <Tabs
             orientation="vertical"
             variant="scrollable"
@@ -246,7 +260,9 @@ export default function Dashboard(props: DashboardProps) {
             }}
           >
             {pages.map((page, i) => (
-              <StyledTab wrapped iconPosition="start" onClick={() => { router.push("https://cometlabs.in/" + page.link) }} label={<Typography variant="TitleMedium">{page.label}</Typography>} {...a11yProps(i)} key={i} />
+              // <StyledTab wrapped iconPosition="start" onClick={() => { router.push("https://cometlabs.in/" + page.link) }} label={<Typography variant="TitleMedium">{page.label}</Typography>} {...a11yProps(i)} key={i} />
+              <StyledTab wrapped iconPosition="start" onClick={() => { router.push("https://cometlabs.in/" + page.link) }} label={<p className={style.TitleMedium}>{page.label}</p>} {...a11yProps(i)} key={i} />
+
             ))}
           </Tabs>
         </div>
@@ -254,7 +270,10 @@ export default function Dashboard(props: DashboardProps) {
           startIcon={<HiOutlineArrowLeft />}
           onClick={() => router.back()}
         >
-          <Typography variant="LabelLarge">Back</Typography>
+          {/* <Typography variant="LabelLarge"> */}
+          <p className={style.LabelLarge}>
+            Back </p>
+          {/* </Typography> */}
         </TextButton>
       </Box>
     </>

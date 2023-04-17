@@ -2,17 +2,25 @@ import Image from "next/image";
 import * as React from "react";
 import { SiFacebook, SiGithub, SiInstagram, SiLinkedin, SiTwitter } from "react-icons/si";
 
+// import {
+//     Grid,
+//     IconButton,
+//     Stack,
+//     Typography,
+//     Divider,
+//     Box, Avatar, CircularProgress, Tooltip
+// } from "@mui/material";
 import {
     Grid,
     IconButton,
     Stack,
-    Typography,
     Divider,
     Box, Avatar, CircularProgress, Tooltip
 } from "@mui/material";
 import { ResumeInfo } from "./types";
 import { CardContainer } from "@/styles/theme";
 import { TiTick } from 'react-icons/ti';
+import style from "@/styles/typography-styles.module.css";
 
 type DynamicCardProps = {
     data: ResumeInfo;
@@ -89,21 +97,27 @@ export default function ProfileCard({ data, percentage }: DynamicCardProps) {
             <Grid container sx={{ pl: 2, pr: 2 }}>
                 <Grid item xs={12} sx={{ mt: 1.5 }}>
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
-                        <Typography variant="TitleLarge" component="p" sx={{ height: "28px", overflow: "hidden" }}>
-                            {data.name}
-                        </Typography>
+                        {/* <Typography variant="TitleLarge" component="p" sx={{ height: "28px", overflow: "hidden" }}> */}
+                        <p className={style.TitleLarge}>
+                            {data.name} </p>
+                        {/* </Typography> */}
                         {percentage && <Tooltip title={`${percentage}% profile is completed.`} placement="bottom"><div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", }}>
                             {percentage != 100 ?
                                 <>
-                                    <Typography sx={{ position: "absolute", display: "flex" }} variant="LabelLarge">{percentage}</Typography>
+                                    {/* <Typography sx={{ position: "absolute", display: "flex" }} variant="LabelLarge"> */}
+                                    <p className={style.LabelLarge}>
+                                        {percentage} </p>
+                                        {/* </Typography> */}
                                     <CircularProgress variant="determinate" value={percentage} />
                                 </>
                                 : <TiTick />}
                         </div></Tooltip>}
                     </div>
-                    <Typography variant="BodyLarge" color="onsurfacevariant.main">
+                    {/* <Typography variant="BodyLarge" color="onsurfacevariant.main"> */}
+                    <p className={style.BodyLarge} style={{color:"onsurfacevariant.main"}}>
                         {data.Username}
-                    </Typography>
+                        </p>
+                    {/* </Typography> */}
                 </Grid>
                 <Grid item xs={12}>
                     {/* {edu} */}
@@ -131,25 +145,27 @@ export default function ProfileCard({ data, percentage }: DynamicCardProps) {
                 <Grid item xs={12}>
                     <Divider sx={{ mb: 2, mt: 2 }} />
                     {data.bio ? (
-                        <Typography
-                            paragraph
-                            variant="BodyLarge"
-                            color="onsurfacevariant.main"
-                            align="left"
-                            sx={{ mb: 2, height: "72px", overflow: "hidden" }}
-                        >
-                            {data.bio}
-                        </Typography>
+                        // <Typography
+                        //     paragraph
+                        //     variant="BodyLarge"
+                        //     color="onsurfacevariant.main"
+                        //     align="left"
+                        //     sx={{ mb: 2, height: "72px", overflow: "hidden" }}
+                        // >
+                        <p className={style.BodyLarge} style={{color:"onsurfacevariant.main"}}>
+                            {data.bio} </p>
+                        // </Typography>
                     ) : (
-                        <Typography
-                            paragraph
-                            variant="BodyLarge"
-                            color="onsurfacevariant.main"
-                            align="left"
-                            sx={{ mb: 2, height: "72px", overflow: "hidden" }}
-                        >
-                            Hi there, this is {data.name}.
-                        </Typography>
+                        // <Typography
+                        //     paragraph
+                        //     variant="BodyLarge"
+                        //     color="onsurfacevariant.main"
+                        //     align="left"
+                        //     sx={{ mb: 2, height: "72px", overflow: "hidden" }}
+                        // >
+                        <p className={style.BodyLarge} style={{color:"onsurfacevariant.main"}}>    
+                        Hi there, this is {data.name}. </p>
+                        // </Typography>
                     )}
                 </Grid>
             </Grid>

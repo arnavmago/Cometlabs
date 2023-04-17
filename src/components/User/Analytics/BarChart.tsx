@@ -1,6 +1,8 @@
-import { Stack, Box, Typography } from '@mui/material';
+// import { Stack, Box, Typography } from '@mui/material';
+import { Stack, Box} from '@mui/material';
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import style from "@/styles/typography-styles.module.css";
 
 const data = [
     {
@@ -80,7 +82,11 @@ const data = [
 const BarchartGraph = () => {
     return (
         <div style={{ margin: "30px 60px" }}>
-        <Typography variant="HeadlineSmall" color="primary">CodeArena Participation</Typography>
+        {/* <Typography variant="HeadlineSmall" color="primary"> */}
+        <p className={style.HeadlineSmall} style={{color:"#c4c6d0"}}>
+            CodeArena Participation
+            {/* </Typography> */}
+            </p>
         <Box sx={{
             marginTop: 2,
             alignItems: "center",

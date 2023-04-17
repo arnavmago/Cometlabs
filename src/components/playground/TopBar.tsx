@@ -1,8 +1,11 @@
 import * as React from "react";
 import { HiOutlineMenu } from "react-icons/hi";
 import { MdOutlineTimer } from "react-icons/md";
+import style from "@/styles/typography-styles.module.css";
 
-import { AppBar, IconButton, Stack, Toolbar, Typography } from "@mui/material";
+
+// import { AppBar, IconButton, Stack, Toolbar, Typography } from "@mui/material";
+import { AppBar, IconButton, Stack, Toolbar } from "@mui/material";
 
 export type TopBarProps = {
   HeaderComponent: JSX.Element;
@@ -21,19 +24,33 @@ export default function TopBar({ HeaderComponent }: TopBarProps) {
           <IconButton size="small">
             <HiOutlineMenu />
           </IconButton>
-          <Typography
+          {/* <Typography
             variant="LabelLarge"
             sx={{ display: "flex", alignItems: "center" }}
-          >
+          > */}
+          <p className={style.LabelLarge} style={{ display: "flex", alignItems: "center" }}>
             <MdOutlineTimer style={{ marginRight: "8px" }} />
             Time Left: 00:00:00
-          </Typography>
+            {/* </Typography> */}
+          </p>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={2}>
-          <Typography variant="LabelLarge">Playground</Typography>
-          <Typography variant="LabelLarge">Submissions</Typography>
-          <Typography variant="LabelLarge">Leaderboard</Typography>
-          <Typography variant="LabelLarge">Editorial</Typography>
+          {/* <Typography variant="LabelLarge"> */}
+          <p className={style.LabelLarge}>
+            Playground </p>
+          {/* </Typography> */}
+          {/* <Typography variant="LabelLarge"> */}
+          <p className={style.LabelLarge}>
+            Submissions </p>
+          {/* </Typography> */}
+          {/* <Typography variant="LabelLarge"> */}
+          <p className={style.LabelLarge}>
+            Leaderboard</p>
+          {/* </Typography> */}
+          {/* <Typography variant="LabelLarge"> */}
+          <p className={style.LabelLarge}>
+            Editorial </p>
+          {/* </Typography> */}
         </Stack>
         {HeaderComponent}
       </Toolbar>

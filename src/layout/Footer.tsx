@@ -8,8 +8,7 @@ import {
   Box,
   Container,
   Grid,
-  Stack,
-  Typography
+  Stack
 } from "@mui/material";
 import { styled } from "@mui/system";
 import Copyright from "@/layout/Copyright";
@@ -17,6 +16,7 @@ import { DefaultUser } from "@/backend/functions";
 import { ScopedCssBaseline } from '@mui/material';
 import { ThemeProvider } from "@material-tailwind/react";
 import { darktheme } from '@/styles/theme';
+import style from "@/styles/typography-styles.module.css";
 
 interface NavLink {
   label: string;
@@ -41,24 +41,27 @@ export default function Footer({ user }: FooterProps) {
 
   const FooterSection = (props: FooterSectionProps) => (
     <Box sx={{ textAlign: "left" }}>
-      <Typography variant="TitleLarge" sx={{ fontWeight: 600, fontSize: "20px", }}>
-        {props.title}
-      </Typography>
+      {/* <Typography variant="TitleLarge" sx={{ fontWeight: 600, fontSize: "20px", }}> */}
+      <p className={style.TitleLarge} style={{ fontWeight: "600", fontSize: "20px" }}>
+        {props.title} </p>
+      {/* </Typography> */}
       <NavList sx={{ mb: "48px" }}>
         {props.navs.map((nav) => (
           <li key={nav.label} onClick={() => { window.location.href = nav.href }} style={{ display: "flex", textDecoration: "none", marginBottom: "4px" }}>
             {/* <Link href={nav.href} > */}
-            <Typography variant="TitleMedium"
+            {/* <Typography variant="TitleMedium"
               sx={{ fontSize: "15px", color: "onsurfacevariant.main", "&:hover": { color: "white" } }}
-            >
-              {nav.label}
-            </Typography>
+            > */}
+            <p className={style.TitleMedium} style={{ fontSize: "15px", color: "#c4c6d0" }}>
+              {nav.label} </p>
+            {/* </Typography> */}
             {!!nav.label2 && (
-              <Typography
-                sx={{ color: "#ffea00", fontWeight: 300, fontSize: "0.875rem", borderRadius: "5px", padding: "0 4px" }}
-              >
-                {nav.label2}
-              </Typography>
+              // <Typography
+              //   sx={{ color: "#ffea00", fontWeight: 300, fontSize: "0.875rem", borderRadius: "5px", padding: "0 4px" }}
+              // >
+              <p style={{ color: "#ffea00", fontWeight: 300, fontSize: "0.875rem", borderRadius: "5px", padding: "0 4px" }}>
+                {nav.label2} </p>
+
             )}
           </li>
         ))}
@@ -146,9 +149,10 @@ export default function Footer({ user }: FooterProps) {
                     </a>
                   </Stack>
                   <Copyright />
-                  <Typography variant="BodySmall" paragraph color="surfacevariant" sx={{ mt: 0.5 }}>
-                    Second Floor, Vindhya C4, IIIT-H, Gachibowli, Telangana 500032
-                  </Typography>
+                  {/* <Typography variant="BodySmall" paragraph color="surfacevariant" sx={{ mt: 0.5 }}> */}
+                  <p className={style.BodySmall} style={{ color: "#c4c6d0" }}>
+                    Second Floor, Vindhya C4, IIIT-H, Gachibowli, Telangana 500032 </p>
+                  {/* </Typography> */}
                 </Box>
               </Grid>
               <Grid item xs={12} sm={6} md={2} lg={2}>

@@ -1,7 +1,8 @@
 import Image from "next/image";
 import * as React from "react";
-
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import style from "@/styles/typography-styles.module.css";
+// import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid, Paper} from "@mui/material";
 import { styled } from "@mui/system";
 
 const RelicCard = styled(Paper)({
@@ -20,13 +21,14 @@ export default function Achievements() {
   return (
     <div>
       <Box sx={{ mt: 2, p: 1 }}>
-        <Typography
+        {/* <Typography
           variant="LabelLarge"
           color="primary"
           sx={{ mb: 2, fontWeight: 500 }}
-        >
-          Relics Earned
-        </Typography>
+        > */}
+        <p className={style.LabelLarge} style={{color:"primary"}}>
+          Relics Earned </p>
+        {/* </Typography> */}
         <Grid container sx={{ mb: 1 }} spacing={2}>
           <Grid item xs="auto">
             <RelicCard>
@@ -37,9 +39,10 @@ export default function Achievements() {
                 layout={"fixed"}
                 alt={"relic-logo"}
               />
-              <Typography variant="LabelLarge" sx={{ mt: 1 }}>
-                Comet Orbs
-              </Typography>
+              {/* <Typography variant="LabelLarge" sx={{ mt: 1 }}> */}
+              <p className={style.LabelLarge}>
+                Comet Orbs </p>
+              {/* </Typography> */}
             </RelicCard>
           </Grid>
           <Grid item xs="auto">
@@ -51,9 +54,10 @@ export default function Achievements() {
                 layout={"fixed"}
                 alt={"relic-logo"}
               />
-              <Typography variant="LabelLarge" sx={{ mt: 1 }}>
-                Comet Particles
-              </Typography>
+              {/* <Typography variant="LabelLarge" sx={{ mt: 1 }}> */}
+              <p className={style.LabelLarge}>
+                Comet Particles </p>
+              {/* </Typography> */}
             </RelicCard>
           </Grid>
           <Grid item xs="auto">
@@ -65,24 +69,28 @@ export default function Achievements() {
                 layout={"fixed"}
                 alt={"relic-logo"}
               />
-              <Typography variant="LabelLarge" sx={{ mt: 1 }}>
-                Comet Crystals
-              </Typography>
+              {/* <Typography variant="LabelLarge" sx={{ mt: 1 }}> */}
+              <p className={style.LabelLarge}>
+                Comet Crystals </p>
+              {/* </Typography> */}
             </RelicCard>
           </Grid>
         </Grid>
-        <Typography variant="LabelLarge">
+        {/* <Typography variant="LabelLarge"> */}
+        <p className={style.LabelLarge}>
           Relics are earned when you perform excellent in Code Fests.
-        </Typography>
+          </p>
+        {/* </Typography> */}
       </Box>
       <Box sx={{ mt: 2, p: 1 }}>
-        <Typography
+        {/* <Typography
           variant="LabelLarge"
           color="primary"
           sx={{ mb: 2, fontWeight: 500 }}
-        >
-          Comet Coins
-        </Typography>
+        > */}
+        <p className={style.LabelLarge} style={{color:"primary"}}>
+          Comet Coins </p>
+        {/* </Typography> */}
         <Grid container sx={{ mb: 1 }} spacing={2}>
           <Grid item xs="auto">
             <RelicCard>
@@ -93,15 +101,18 @@ export default function Achievements() {
                 layout={"fixed"}
                 alt={"relic-logo"}
               />
-              <Typography variant="LabelLarge" sx={{ mt: 1 }}>
-                Comet Coins
-              </Typography>
+              {/* <Typography variant="LabelLarge" sx={{ mt: 1 }}> */}
+              <p className={style.LabelLarge}>
+                Comet Coins </p>
+              {/* </Typography> */}
             </RelicCard>
           </Grid>
         </Grid>
-        <Typography variant="LabelLarge">
+        {/* <Typography variant="LabelLarge"> */}
+        <p className={style.LabelLarge}>
           Comet coins are earned when you win Events on Festec.
-        </Typography>
+          </p>
+        {/* </Typography> */}
       </Box>
     </div>
   );

@@ -7,13 +7,15 @@ export interface Profile {
     Tags?: string[]
 };
 
-import { Grid, Typography, Box, Skeleton, Chip } from "@mui/material";
+// import { Grid, Typography, Box, Skeleton, Chip } from "@mui/material";
+import { Grid, Box, Skeleton, Chip } from "@mui/material";
 import * as React from "react";
 import dynamic from "next/dynamic";
 import { ResumeInfo, ResumeDataType } from '@/components/User/Dashboard/types';
 import { OutlinedButton } from "@/styles/theme";
 import { InternalLinks } from "@/content/Links";
 import { getPercentage } from './Resume';
+import style from "@/styles/typography-styles.module.css";
 
 const DynamicCard = dynamic(
     () => import('@/components/User/Dashboard/ProfileCard'),
@@ -44,9 +46,12 @@ const ProfilesPage = ({ profile, LastKey, realProfils, TotalUsers }: Resume) => 
         <>
             <Box sx={{ mt: { xs: "32px", md: "64px" }, mx: { md: "40px", xs: "20px" } }}>
                 <Box sx={{ display: "flex", alignItems: { xs: "flex-start", sm: "center" }, flexDirection: { xs: "column", sm: "row" } }}>
-                    <Typography variant="HeadlineLarge"
+                    {/* <Typography variant="HeadlineLarge"
                         sx={{ maxWidth: `calc(100vw - 100px)` }}
-                        noWrap>Most Active Developers</Typography>
+                        noWrap> */}
+                        <p className={style.HeadlineLarge}>
+                            Most Active Developers </p>
+                            {/* </Typography> */}
                     <Chip sx={{ backgroundColor: "surfacevariant.main", color: 'primary.main', fontWeight: "bold", ml: 2 }} label={`Total Developers - ${TotalUsers.count}`} />
                 </Box>
                 <Grid container sx={{ justifyContent: "space-around", mb: 4 }}>
@@ -122,9 +127,12 @@ const AllProfiles = ({ profile, LastKey }: Props) => {
         <>
             {prof ? (
                 <Box sx={{ mt: "64px", ml: "40px" }}>
-                    <Typography variant="HeadlineLarge" paragraph
+                    {/* <Typography variant="HeadlineLarge" paragraph
                         sx={{ flexGrow: 1, maxWidth: `calc(100vw - 100px)` }}
-                        noWrap>More Developers</Typography>
+                        noWrap> */}
+                        <p className={style.HeadlineLarge}>
+                            More Developers </p>
+                            {/* </Typography> */}
                     {comp}
                     <Grid container>
                         {prof.map((pro, i) => {
@@ -147,7 +155,10 @@ const AllProfiles = ({ profile, LastKey }: Props) => {
                     }
                 </Box>
             ) : (
-                <Typography variant="LabelLarge">Error!! No Profile Found</Typography>
+                // <Typography variant="LabelLarge">
+                <p className={style.LabelLarge}>
+                    Error!! No Profile Found </p>
+                    // </Typography>
             )}
         </>
     )

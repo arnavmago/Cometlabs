@@ -1,6 +1,8 @@
 import { LineChartGraph } from "@/components/User/Dashboard/types";
-import { Box, Stack, Typography } from "@mui/material";
+// import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack} from "@mui/material";
 import { LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend, Line, CartesianGrid } from 'recharts';
+import style from "@/styles/typography-styles.module.css";
 
 interface graph {
     data?: LineChartGraph[];
@@ -10,7 +12,11 @@ const LineChartGraph = ({ data }: graph) => {
     console.log(data)
     return (
         <div style={{ margin: "30px 60px" }}>
-            <Typography variant="HeadlineSmall" color="primary">Platform Users</Typography>
+            {/* <Typography variant="HeadlineSmall" color="primary"> */}
+            <p className={style.HeadlineSmall}>
+                Platform Users
+                {/* </Typography> */}
+                </p>
             <Box sx={{
                 marginTop: 2,
                 alignItems: "center",

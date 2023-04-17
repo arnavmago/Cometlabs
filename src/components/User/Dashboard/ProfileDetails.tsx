@@ -8,18 +8,27 @@ import { SiFacebook, SiGithub, SiInstagram, SiLinkedin, SiTwitter, SiLeetcode } 
 import { useSession } from 'next-auth/react';
 import { DefaultUser } from "@/backend/functions";
 import { handleProfileImageUpload } from "@/backend/functions";
+// import {
+//   Grid,
+//   IconButton,
+//   Skeleton,
+//   Stack,
+//   TextField,
+//   Typography,
+//   Divider,
+//   Box, Avatar
+// } from "@mui/material";
 import {
   Grid,
   IconButton,
   Skeleton,
   Stack,
   TextField,
-  Typography,
-  Divider,
+   Divider,
   Box, Avatar
 } from "@mui/material";
 import { Accept } from 'react-dropzone'
-
+import style from "@/styles/typography-styles.module.css";
 import { ReadOnly, ResumeInfo, ResumeEducation } from "./types";
 
 const Dropzone = dynamic(() => import("@/components/Dropzone"), {
@@ -194,15 +203,16 @@ export default function ProfileDetails({ readOnly, bioo, social, images, clg, na
       {readOnly ? (
         <>
           <Divider sx={{ mb: 2, mt: 2 }} />
-          <Typography
+          {/* <Typography
             paragraph
             variant="BodyLarge"
             color="onsurfacevariant.main"
             align="left"
             sx={{ mb: 2 }}
-          >
-            {info.bio}
-          </Typography>
+          > */}
+          <p className={style.BodyLarge} style={{color:"onsurfacevariant.main"}}>
+            {info.bio} </p>
+          {/* </Typography> */}
         </>
       ) : (
         <>
@@ -243,16 +253,62 @@ export default function ProfileDetails({ readOnly, bioo, social, images, clg, na
   )
 
   // contains readonly and edit both details for education
+  // const edu = (
+  //   <div>
+  //     {readOnly ? (
+  //       <>
+  //         <Divider sx={{ mb: 2 }} />
+  //         <Typography variant="BodyLarge" sx={{}}>
+  //         {/* <p className={style.BodyLarge}> */}
+  //           {educa && educa.institution || ""} 
+  //           {/* </p> */}
+  //         </Typography></>
+  //     ) : (
+  //       <Box>
+  //         <Controller
+  //           name="education[0].institution"
+  //           defaultValue={educa && educa.institution || ""}
+  //           render={({ field: { ref, ...field }, fieldState: { error } }) => (
+  //             <TextField
+  //               label="College Name"
+  //               inputProps={{
+  //                 style: {
+  //                   fontWeight: 400,
+  //                   fontSize: "16px",
+  //                   lineHeight: "24px",
+  //                 }
+  //               }}
+  //               InputLabelProps={{
+  //                 style: {
+  //                   fontWeight: 500,
+  //                   fontSize: "14px",
+  //                   lineHeight: "20px",
+  //                 }
+  //               }}
+  //               fullWidth
+  //               size="small"
+  //               error={!!error}
+  //               {...field}
+  //             />
+  //           )}
+  //         />
+  //       </Box>
+  //     )}
+  //   </div>
+  // )
+
   const edu = (
     <div>
       {readOnly ? (
         <>
           <Divider sx={{ mb: 2 }} />
-          <Typography variant="BodyLarge" sx={{}}>
-            {educa && educa.institution || ""}
-          </Typography></>
+         
+          <p className={style.BodyLarge}>
+            {educa && educa.institution || ""} 
+            </p>
+        </>
       ) : (
-        <Box >
+        <Box>
           <Controller
             name="education[0].institution"
             defaultValue={educa && educa.institution || ""}
@@ -557,9 +613,10 @@ export default function ProfileDetails({ readOnly, bioo, social, images, clg, na
           {/* <Typography variant="TitleLarge" component="p">
             {info.name}
           </Typography> */}
-          <Typography variant="BodyLarge" color="onsurfacevariant.main">
-            {username}
-          </Typography>
+          {/* <Typography variant="BodyLarge" color="onsurfacevariant.main"> */}
+          <p className={style.BodyLarge} style={{color:"onsurfacevariant.main"}}>
+            {username} </p>
+          {/* </Typography> */}
         </Grid>
       ) : (
         <Stack spacing={2}>

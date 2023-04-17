@@ -1,4 +1,5 @@
-import { Typography, Box } from '@mui/material';
+// import { Typography, Box } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 // import { v4 as uuidv4 } from 'uuid';
 // import { DefaultUser } from "@/backend/functions";
@@ -9,6 +10,7 @@ import { InternalLinks } from '@/content/Links';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { CardContainer, FilledButton } from '@/styles/theme';
 // import Image from 'next/image';
+import style from "@/styles/typography-styles.module.css";
 
 export type Problem = {
     id: string;
@@ -80,9 +82,11 @@ const CreateNewCard = ({ frame }: framework) => {
             <CardContainer sx={{ padding: "10px 20px", mt: "20px" }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <Typography variant="LabelLarge" sx={{ mt: 1, mb: 1, mr: 1, fontWeight: 600 }}>
+                        {/* <Typography variant="LabelLarge" sx={{ mt: 1, mb: 1, mr: 1, fontWeight: 600 }}> */}
+                        <p className={style.LabelLarge}>
                             Problem title
-                        </Typography>
+                            {/* </Typography> */}
+                        </p>
                     </Box>
                     <FilledButton endIcon={<HiOutlineExternalLink />}
                         // onClick={() => handleClick()} 
@@ -97,7 +101,16 @@ const CreateNewCard = ({ frame }: framework) => {
                         href={`${InternalLinks.LABS_PAGE}${uuidv4()}`}
                     >Create</Button> */}
                 </Box>
-                <Typography sx={{
+                {/* <Typography sx={{
+                    padding: "0 10px",
+                    maxWidth: '100%',
+                    display: '-webkit-box',
+                    WebkitBoxOrient: 'vertical',
+                    WebkitLineClamp: 4,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                }}> */}
+                <p style={{
                     padding: "0 10px",
                     maxWidth: '100%',
                     display: '-webkit-box',
@@ -107,7 +120,8 @@ const CreateNewCard = ({ frame }: framework) => {
                     textOverflow: 'ellipsis'
                 }}>
                     Problem Statement
-                </Typography>
+                    {/* </Typography> */}
+                </p>
             </CardContainer>
         </>
     )

@@ -1,7 +1,8 @@
 import { DefaultUser } from "@/backend/functions";
 import { CardContainer } from "@/styles/theme";
-import { Modal, Grid, Typography } from "@mui/material";
+import { Modal, Grid } from "@mui/material";
 import { FestecTracks, TrackCard } from "./PlaygroundArea";
+import style from "@/styles/typography-styles.module.css";
 
 const ModalPlayground = ({ open, setOpen, user }: ModalType) => {
     return (
@@ -9,7 +10,9 @@ const ModalPlayground = ({ open, setOpen, user }: ModalType) => {
             <Grid container>
                 <Grid item sx={{ borderRadius: "4px", textAlign: "center", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", justifyContent: "space-between", alignContent: "center", width: { xs: "80%", sm: "70%", md: "50%" } }}>
                     <CardContainer elevation={0} sx={{ p: 3, pb: { md: 7, xs: 4 }, maxWidth: "200x" }}>
-                        <Typography paragraph sx={{ mb: 5 }} variant="TitleLarge">Explore COMETLABS</Typography>
+                        {/* <Typography paragraph sx={{ mb: 5 }} variant="TitleLarge">Explore COMETLABS</Typography> */}
+                        <p className = {style.TitleLarge} style={{marginBottom: '5px'}}>Explore COMETLABS</p>
+                        
                         <Grid direction="row" container spacing={2} justifyContent="center" alignItems="center">
                             {FestecTracks.map(
                                 (festectracks, i) =>

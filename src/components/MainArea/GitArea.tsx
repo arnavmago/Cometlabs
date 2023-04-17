@@ -1,10 +1,12 @@
 import { DefaultUser } from "@/backend/functions";
 import { FilledButton } from "@/styles/theme";
-import { Icon, InputAdornment, MenuItem, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
+// import { Icon, InputAdornment, MenuItem, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
+import { Icon, InputAdornment, MenuItem, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { BiLockAlt, BiSearch } from "react-icons/bi";
 import { MdOutlineCancel } from "react-icons/md";
 import { SiGithub } from "react-icons/si";
+import style from "@/styles/typography-styles.module.css";
 
 export interface REPOS {
     id: number;
@@ -56,14 +58,25 @@ const GitArea = () => {
 
     return (
         <div style={{ marginTop: "-40px" }}>
-            <Typography paragraph sx={{ mb: 2 }} variant="LabelLarge">Connect with a Git provider to import an existing project from a Git Repository.</Typography>
-            {!usr ? <Typography variant="LabelLarge">Connect to Github</Typography> : <div style={{ margin: "20px", display: "flex", marginBottom: "32px", justifyContent: "space-between" }}>
+            {/* <Typography paragraph sx={{ mb: 2 }} variant="LabelLarge">Connect with a Git provider to import an existing project from a Git Repository.</Typography> */}
+            <p className={style.LabelLarge}>
+            Connect with a Git provider to import an existing project from a Git Repository.
+            </p>
+            {!usr ? 
+            // <Typography variant="LabelLarge">Connect to Github</Typography>
+            <p className={style.LabelLarge}>
+            Connect to Github
+            </p>
+             : <div style={{ margin: "20px", display: "flex", marginBottom: "32px", justifyContent: "space-between" }}>
                 <div style={{ display: "flex", alignItems: 'center' }}>
                     <SiGithub />
-                    <Typography style={{ marginLeft: "6px" }} variant="LabelLarge">Connect Github</Typography>
+                    {/* <Typography style={{ marginLeft: "6px" }} variant="LabelLarge">Connect Github</Typography> */}
+                    <p className={style.LabelLarge} style={{marginLeft: "6px"}}>Connect Github</p>
+
                 </div>
                 <div style={{ display: 'flex', alignItems: "center", cursor: 'pointer' }} onClick={() => { window.open(`https://github.com/login/oauth/authorize?client_id=e07b9a9e6d2763621b8e&scope=repo,user:email&state=${usr.accessToken}`) }}>
-                    <Typography style={{ marginRight: "6px" }} variant="LabelLarge">{usr.username}</Typography>
+                    {/* <Typography style={{ marginRight: "6px" }} variant="LabelLarge">{usr.username}</Typography> */}
+                    <p className={style.LabelLarge} style={{marginRight: "6px"}}>{usr.username}</p>
                     <MdOutlineCancel />
                 </div>
             </div>}
@@ -102,7 +115,9 @@ const GitHubRepos = ({ repositories, user }: githubrepo) => {
     return (
         <>
             <div>
-                <Typography paragraph variant="TitleLarge">Import Git Repositories</Typography>
+                {/* <Typography paragraph variant="TitleLarge">Import Git Repositories</Typography> */}
+                <p className={style.TitleLArge}>Import Git Repositories</p>
+                
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "32px", marginBottom: "16px" }}>
                     <TextField style={{ paddingBottom: "0px", width: "100%", maxWidth: "200px" }}
                         select
@@ -200,10 +215,12 @@ const ActiveRepos = ({ repositories, user }: githubrepo) => {
                                         style={{ display: "flex", justifyContent: "space-between" }}
                                     >
                                         <div style={{ maxWidth: "220px" }}>
-                                            <Typography variant="TitleSmall">{repo.name}
-                                            </Typography>
+                                            {/* <Typography variant="TitleSmall">{repo.name}
+                                            </Typography> */}
+                                            <p className={style.TitleSmall}>{repo.name}</p>
                                             {repo.private && <Icon><BiLockAlt fontSize="16px" /></Icon>}
-                                            <Typography variant="BodySmall" paragraph style={{ margin: '0px' }}>{Math.round((new Date().getTime() - new Date(repo.updated_at).getTime()) / (1000 * 60 * 60 * 24))}d ago</Typography>
+                                            {/* <Typography variant="BodySmall" paragraph style={{ margin: '0px' }}>{Math.round((new Date().getTime() - new Date(repo.updated_at).getTime()) / (1000 * 60 * 60 * 24))}d ago</Typography> */}
+                                            <p className={style.BodySmall}  style={{ margin: '0px' }}>{Math.round((new Date().getTime() - new Date(repo.updated_at).getTime()) / (1000 * 60 * 60 * 24))}d ago</p>
                                         </div>
                                         <div style={{ float: 'right' }}>
                                             <TextField
@@ -236,10 +253,12 @@ const ActiveRepos = ({ repositories, user }: githubrepo) => {
                                                 })}
                                             </TextField>
                                             <FilledButton onClick={() => { window.open(`https://cometlabs.in/lab/${playground}/${user!.username}/g/${gitrepourl}?git_url=${gitrepourl}&provider=github`) }}>
-                                                <Typography variant="LabelLarge">Import</Typography>
+                                                {/* <Typography variant="LabelLarge">Import</Typography> */}
+                                                <p className={style.LabelLarge}>Import</p>
                                             </FilledButton>
                                         </div>
                                         {/* <Typography style={{ marginRight: "16px" }} paragraph></Typography> */}
+                                        <p style={{marginRight:"16px"}}>paragraph</p>
                                     </TableCell>
                                 </TableRow>
                             )

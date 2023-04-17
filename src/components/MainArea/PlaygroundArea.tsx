@@ -1,5 +1,6 @@
 // this component will return playground cards, ready to use anywhere.
-import { Grid, IconButton, Modal, TextField, Typography } from "@mui/material";
+// import { Grid, IconButton, Modal, TextField, Typography } from "@mui/material";
+import { Grid, IconButton, Modal, TextField } from "@mui/material";
 import { DefaultUser } from "@/backend/functions";
 import * as React from "react";
 // import ShowcaseSmall from "@/components/Carousels/ShowcaseSmall";
@@ -10,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState } from "react";
 import { MdOutlineCancel } from 'react-icons/md';
 import dynamic from "next/dynamic";
+import style from "@/styles/typography-styles.module.css";
 
 const ModalPlayground = dynamic(() => import('@/components/MainArea/Modals'),
   { ssr: false }
@@ -63,6 +65,7 @@ const PlayArea = ({ plus, value }: play) => {
               alt={"add-logo"}
             />
             {/* <Typography sx={{ fontWeight: 500, mt: 1 }}>{props.title}</Typography> */}
+            {/* <p>{props.title}</p> */}
           </CardContainer>
         </Grid>}
       </Grid>
@@ -152,14 +155,16 @@ export function TrackCard({ selected, sx, user, ...props }: TrackCardProps) {
             alt={props.title + "-logo"}
           />
         </div>
-        <Typography variant="BodySmall">{capitalizeLetter(props.title)}</Typography>
+        {/* <Typography variant="BodySmall">{capitalizeLetter(props.title)}</Typography> */}
+        <p className={style.BodySmall}>{capitalizeLetter(props.title)}</p>
       </CardContainer>
       <Modal open={open} onClose={handleClose}>
         <Grid container>
           <Grid item sx={{ borderRadius: "4px", textAlign: "center", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", justifyContent: "space-between", alignContent: "center", width: { xs: "80%", sm: "70%", md: "50%" } }}>
             <IconButton sx={{ position: "absolute", right: "16px", top: "16px" }} onClick={() => { setOpen(false) }}><MdOutlineCancel /></IconButton>
             <CardContainer elevation={0} sx={{ p: 3, pb: { md: 7, xs: 4 }, maxWidth: "200x", backgroundColor: "black" }}>
-              <Typography paragraph sx={{ mb: 5 }} variant="TitleLarge">Create {props.title[0].toUpperCase() + props.title.slice(1)}-LAB</Typography>
+              {/* <Typography paragraph sx={{ mb: 5 }} variant="TitleLarge">Create {props.title[0].toUpperCase() + props.title.slice(1)}-LAB</Typography> */}
+              <p className={style.TitleLarge}>Create {props.title[0].toUpperCase() + props.title.slice(1)}-LAB</p>
               <TextField
                 margin="normal"
                 required
@@ -187,7 +192,8 @@ export function TrackCard({ selected, sx, user, ...props }: TrackCardProps) {
                       color="primary"
                       onClick={() => { handleClick(name) }}
                     >
-                      <Typography variant="LabelMedium">Open</Typography>
+                      {/* <Typography variant="LabelMedium">Open</Typography> */}
+                      <p className={style.LabelMedium}>Open</p>
                     </TextButton>
                   ),
                 }}

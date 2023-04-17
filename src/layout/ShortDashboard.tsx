@@ -3,8 +3,8 @@ import {
   Box,
   Tab,
   Tabs,
-  Typography,
 } from "@mui/material";
+import style from "@/styles/typography-styles.module.css";
 
 const drawerWidth = 200;
 
@@ -90,8 +90,14 @@ export default function ShortDashboard(props: DashboardProps) {
               }
             }}
           >
-            {tabs.map((tab, i) => (
+            {/* {tabs.map((tab, i) => (
               <Tab sx={{ border: "1px solid rgba(255, 255, 255, 0.2)", borderTop: "none" }} iconPosition="start" label={<Typography variant="TitleMedium">{tab.label}</Typography>} {...a11yProps(i)} key={"tab-" + i} />
+            ))}
+          </Tabs>
+        </div>
+      </Box> */}
+            {tabs.map((tab, i) => (
+              <Tab sx={{ border: "1px solid rgba(255, 255, 255, 0.2)", borderTop: "none" }} iconPosition="start" label={<p className={style.TitleMedium}>{tab.label}</p>} {...a11yProps(i)} key={"tab-" + i} />
             ))}
           </Tabs>
         </div>

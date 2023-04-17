@@ -1,8 +1,10 @@
 import { DefaultUser } from "@/backend/functions";
 import { FilledButton } from "@/styles/theme";
-import { MenuItem, Typography, Icon, TextField, TableContainer, Paper, Table, TableBody, TableRow, TableCell } from '@mui/material'
+//import { MenuItem, Typography, Icon, TextField, TableContainer, Paper, Table, TableBody, TableRow, TableCell } from '@mui/material'
+import { MenuItem,  Icon, TextField, TableContainer, Paper, Table, TableBody, TableRow, TableCell } from '@mui/material'
 import * as React from "react";
 import { BiLockAlt } from "react-icons/bi";
+import style from "@/styles/typography-styles.module.css";
 
 export interface REPOS {
     id: number;
@@ -49,10 +51,15 @@ const ActiveRepos = ({ repositories, user }: githubrepo) => {
                                      style={{ display: "flex", justifyContent: "space-between"}}
                                      >
                                     <div>
-                                        <Typography variant="TitleSmall">{repo.name}
-                                        </Typography>
+                                        {/* <Typography variant="TitleSmall">{repo.name}
+                                        </Typography> */}
+                                        <p className={style.TitleSmall}>{repo.name}</p>
                                         {repo.private && <Icon><BiLockAlt fontSize="16px" /></Icon>}
-                                        <Typography variant="BodySmall"paragraph style={{ margin: '0px'}}>{Math.round((new Date().getTime() - new Date(repo.updated_at).getTime()) / (1000 * 60 * 60 * 24))}d ago</Typography>
+                                        {/* <Typography variant="BodySmall"paragraph style={{ margin: '0px'}}> */}
+                                        <p className={style.BodySmall}>
+                                            {Math.round((new Date().getTime() - new Date(repo.updated_at).getTime()) / (1000 * 60 * 60 * 24))}d ago
+                                            {/* </Typography> */}
+                                            </p>
                                     </div>
                                     <div style={{ float: 'right' }}>
                                         <TextField
@@ -84,7 +91,11 @@ const ActiveRepos = ({ repositories, user }: githubrepo) => {
                                                 })}
                                         </TextField>
                                         <FilledButton style={{ marginRight: "20px"}} onClick={() => { window.open(`https://cometlabs.in/lab/${playground}/${user!.username}/g/${gitrepourl}?git_url=${gitrepourl}&provider=github`) }}>
-                                            <Typography variant="LabelLarge">Import</Typography>
+                                            {/* <Typography variant="LabelLarge"> */}
+                                            <p className={style.LabelLarge}>
+                                                Import
+                                                {/* </Typography> */}
+                                                </p>
                                         </FilledButton>
                                     </div>
                         {/* <Typography style={{ marginRight: "16px" }} paragraph></Typography> */}

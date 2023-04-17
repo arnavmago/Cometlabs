@@ -4,8 +4,10 @@ import { HiOutlineChevronDown } from "react-icons/hi";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import { Grid, Typography } from "@mui/material";
+// import { Grid, Typography } from "@mui/material";
+import { Grid} from "@mui/material";
 import ShowcaseBig from "../Carousels/ShowcaseBig";
+import style from "@/styles/typography-styles.module.css";
 
 type FAQ = {
   question: string;
@@ -17,14 +19,18 @@ function FaqAccordian({ question, answer }: FAQ) {
   return (
     <Accordion>
       <AccordionSummary expandIcon={<HiOutlineChevronDown />}>
-        <Typography variant="LabelLarge">
+        {/* <Typography variant="LabelLarge"> */}
+        <p className={style.LabelLarge}>
           {question}
-        </Typography>
+          </p>
+        {/* </Typography> */}
       </AccordionSummary>
       <AccordionDetails>
-        <Typography variant="LabelLarge" color="textSecondary">
+        {/* <Typography variant="LabelLarge" color="textSecondary"> */}
+        <p className={style.LabelLarge}>
           {answer}
-        </Typography>
+        {/* </Typography> */}
+        </p>
       </AccordionDetails>
     </Accordion>
   );
@@ -80,5 +86,3 @@ const FAQs = [
       "The salary of a React.js developer will depend on a number of factors such as experience, seniority, skill-set, location, etc. On an average a React.js developer with 3 years of experience can expect a compensation between $10,000 and $50,000 per annum. If you are a developer looking to work, apply for jobs and work from the comfort of your home",
   },
 ];
-
-
